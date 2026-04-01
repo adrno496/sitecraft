@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site web pour freelance & auto-entrepreneur — 24h | SiteCraft</title>
+  <meta name="description" content="Site web professionnel pour freelance, consultant, auto-entrepreneur. Design moderne, SEO, livré en 24h dès 149 €. Fichiers HTML/CSS que vous possédez." />
+  <meta name="keywords" content="site web freelance, site internet auto-entrepreneur, portfolio freelance pas cher, site web consultant, création site web indépendant" />
+  <meta property="og:title" content="Site web pour freelance — Livré en 24h dès 149 € | SiteCraft" />
+  <meta property="og:description" content="Site professionnel pour freelance, consultant, auto-entrepreneur. Design moderne, SEO intégré, fichiers que vous possédez à 100 %." />
+  <meta property="og:url" content="https://sitecraft.fr/site-web-freelance" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://sitecraft.fr/site-web-freelance" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- MOBILE NAV OVERLAY -->
+<nav class="navbar-mobile" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Fermer">✕</button>
+  <a href="index.html" onclick="closeMobile()">Accueil</a>
+  <a href="index.html#offre" onclick="closeMobile()">Offres</a>
+  <a href="index.html#faq" onclick="closeMobile()">FAQ</a>
+  <a href="questionnaire.html" class="btn btn-primary" style="margin-top:16px;">Démarrer mon projet</a>
+</nav>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
+    <ul class="navbar-links">
+      <li><a href="index.html#fonctionnement">Fonctionnement</a></li>
+      <li><a href="index.html#offre">Offres</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">☀️</button>
+      <a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Démarrer mon projet</a>
+    </div>
+    <button class="navbar-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="seo-page">
+
+  <!-- ── HERO ── -->
+  <section class="seo-hero">
+    <div class="container">
+      <div class="hero-badge fade-up" style="margin-bottom:24px;">
+        <span>💼</span> Freelances &amp; auto-entrepreneurs
+      </div>
+      <h1 class="fade-up delay-1">Votre site web freelance —<br><span class="accent">propre, rapide, à vous</span></h1>
+      <p class="fade-up delay-2">
+        Designer, développeur, consultant, rédacteur, coach, photographe — votre expertise mérite une présence en ligne à la hauteur. Recevez votre site professionnel livré en 24–48h, dès 149 €, sans abonnement ni dépendance.
+      </p>
+      <div class="seo-hero-cta fade-up delay-3">
+        <a href="questionnaire.html" class="btn btn-primary btn-lg">Démarrer mon site freelance →</a>
+        <a href="index.html#offre" class="btn btn-outline btn-lg">Voir les tarifs</a>
+      </div>
+      <div class="hero-trust fade-up delay-4">
+        <span>✔ Fichiers 100 % à vous</span>
+        <span>✔ Zéro abonnement</span>
+        <span>✔ Livraison 24–48h</span>
+        <span>✔ Dès 149 €</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROBLÈME / SOLUTION ── -->
+  <section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Le problème</div>
+        <h2>Wix, Squarespace… et après ?</h2>
+        <p>Les constructeurs de sites en ligne vous font payer chaque mois pour un site que vous ne possédez pas vraiment — et qui sera fermé si vous arrêtez l'abonnement.</p>
+      </div>
+      <div class="seo-values-grid">
+        <div class="seo-value-card fade-up" style="border-color:rgba(200,245,66,0.15);">
+          <span class="seo-value-icon">❌</span>
+          <h3 style="color:var(--muted);">Les autres solutions</h3>
+          <p>Abonnement mensuel de 15 à 50 €. Fichiers inaccessibles. Templates génériques. SEO limité. Dépendance totale à la plateforme.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-1" style="border-color:var(--accent);background:linear-gradient(160deg,#0f1a00 0%,var(--surface) 100%);">
+          <span class="seo-value-icon">✅</span>
+          <h3>SiteCraft</h3>
+          <p>Paiement unique. Fichiers HTML/CSS que vous possédez à 100 %. Design sur mesure. SEO intégré. Hébergement gratuit. Livré en 24–48h.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-2" style="border-color:rgba(200,245,66,0.15);">
+          <span class="seo-value-icon">💡</span>
+          <h3>Le calcul est simple</h3>
+          <p>Un abonnement Squarespace à 25 €/mois = 300 €/an. Avec SiteCraft, vous payez 149–399 € une seule fois pour un site vraiment à vous.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALEUR AJOUTÉE ── -->
+  <section>
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Ce que vous gagnez</div>
+        <h2>Fait pour les indépendants exigeants</h2>
+      </div>
+      <div class="seo-values-grid">
+        <div class="seo-value-card fade-up">
+          <span class="seo-value-icon">🎨</span>
+          <h3>Design sur mesure</h3>
+          <p>Votre site n'est pas un template remixé. Chaque design est pensé pour votre activité, votre positionnement et votre cible.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-1">
+          <span class="seo-value-icon">🔍</span>
+          <h3>SEO intégré dès le départ</h3>
+          <p>Balises, sitemap, schema.org, Core Web Vitals — votre site est optimisé pour remonter sur Google avant même sa mise en ligne.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-2">
+          <span class="seo-value-icon">⚡</span>
+          <h3>Vitesse maximale</h3>
+          <p>Code HTML/CSS pur, zéro plugin, zéro framework lourd. Votre site charge en moins d'une seconde — un avantage SEO majeur.</p>
+        </div>
+        <div class="seo-value-card fade-up">
+          <span class="seo-value-icon">🗂️</span>
+          <h3>Propriété totale</h3>
+          <p>Vous recevez un ZIP avec tous vos fichiers source. Hébergez-les où vous voulez. Modifiez ce que vous voulez. Aucune dépendance.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-1">
+          <span class="seo-value-icon">📱</span>
+          <h3>Responsive parfait</h3>
+          <p>Mobile-first par design. Votre portfolio ou page de services s'affiche impeccablement sur tous les écrans.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-2">
+          <span class="seo-value-icon">💸</span>
+          <h3>Zéro abonnement</h3>
+          <p>Un paiement unique. Hébergement gratuit via GitHub + Vercel. Vous gardez le contrôle total sans débourser un centime chaque mois.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROFILS FREELANCES ── -->
+  <section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Pour qui</div>
+        <h2>Tous les profils freelance</h2>
+      </div>
+      <div class="metiers-grid">
+        <div class="metier-card fade-up">
+          <span class="metier-emoji">🖌️</span>
+          <h3>Designer</h3>
+          <p>Portfolio visuel, études de cas, contact. Montrez votre style avec un site à votre image.</p>
+        </div>
+        <div class="metier-card fade-up delay-1">
+          <span class="metier-emoji">💻</span>
+          <h3>Développeur</h3>
+          <p>Stack, projets GitHub, tarifs, contact. Un site pro pour décrocher des missions.</p>
+        </div>
+        <div class="metier-card fade-up delay-2">
+          <span class="metier-emoji">📊</span>
+          <h3>Consultant</h3>
+          <p>Expertise, méthodologie, résultats clients. Positionnez-vous comme l'expert de référence.</p>
+        </div>
+        <div class="metier-card fade-up delay-3">
+          <span class="metier-emoji">✍️</span>
+          <h3>Rédacteur</h3>
+          <p>Portfolio d'articles, spécialités, tarifs. Attirez les clients qui cherchent votre plume.</p>
+        </div>
+        <div class="metier-card fade-up">
+          <span class="metier-emoji">🎯</span>
+          <h3>Coach</h3>
+          <p>Accompagnement, témoignages, offres. Un site qui rassure et convertit vos prospects.</p>
+        </div>
+        <div class="metier-card fade-up delay-1">
+          <span class="metier-emoji">📸</span>
+          <h3>Photographe</h3>
+          <p>Galerie, prestations, réservation. Mettez vos photos en valeur avec un site épuré.</p>
+        </div>
+        <div class="metier-card fade-up delay-2">
+          <span class="metier-emoji">🎙️</span>
+          <h3>Formateur</h3>
+          <p>Programme, témoignages, inscription. Vendez vos formations avec un site qui convainc.</p>
+        </div>
+        <div class="metier-card fade-up delay-3">
+          <span class="metier-emoji">🚀</span>
+          <h3>Autre activité</h3>
+          <p>Traducteur, social media manager, comptable indépendant… J'adapte à votre métier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="how-bg">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 64px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Le processus</div>
+        <h2>Simple comme bonjour</h2>
+        <p>4 étapes pour avoir votre site freelance en ligne.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-item fade-up">
+          <div class="step-number">01</div>
+          <h3>Questionnaire</h3>
+          <p>5 à 10 minutes pour me parler de votre activité, votre cible, vos services et votre style.</p>
+        </div>
+        <div class="step-item active fade-up delay-1">
+          <div class="step-number">02</div>
+          <h3>Création sur mesure</h3>
+          <p>Design, textes, SEO, code — tout pensé pour votre positionnement. Livraison sous 24–48h.</p>
+        </div>
+        <div class="step-item fade-up delay-2">
+          <div class="step-number">03</div>
+          <h3>Validation</h3>
+          <p>Vous recevez la proposition et le devis. Aucun engagement — vous validez librement.</p>
+        </div>
+        <div class="step-item fade-up delay-3">
+          <div class="step-number">04</div>
+          <h3>Fichiers + guide</h3>
+          <p>Après paiement : ZIP complet + guide PDF mise en ligne. En ligne en moins de 15 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OFFRES ── -->
+  <section id="tarifs">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Tarifs freelance</div>
+        <h2>Un prix clair, sans surprise</h2>
+        <p>Choisissez l'offre adaptée à votre projet. Paiement uniquement après validation.</p>
+        <div class="rarity-banner fade-up">
+          ⚡ Disponibilité limitée — <strong>5 projets maximum par semaine</strong>
+        </div>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-up">
+          <div class="pricing-header">
+            <div class="pricing-tier">Starter</div>
+            <div class="pricing-price">149 <span>€</span></div>
+            <div class="pricing-desc">Landing page percutante pour démarrer votre présence en ligne.</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Landing page 1 page</li>
+            <li>Design professionnel personnalisé</li>
+            <li>Textes adaptés à votre activité</li>
+            <li>SEO on-page intégré</li>
+            <li>Formulaire de contact</li>
+            <li>Responsive mobile</li>
+            <li>Guide mise en ligne PDF</li>
+            <li>Livraison 24–48h</li>
+          </ul>
+          <a href="questionnaire.html" class="btn btn-outline" style="width:100%;justify-content:center;">Choisir Starter →</a>
+        </div>
+        <div class="pricing-card best-seller fade-up delay-1">
+          <div class="pricing-badge">⭐ Le plus choisi</div>
+          <div class="pricing-header">
+            <div class="pricing-tier">Pro</div>
+            <div class="pricing-price">249 <span>€</span></div>
+            <div class="pricing-desc">Site complet avec portfolio, services et formulaire de contact.</div>
+          </div>
+          <ul class="pricing-features">
+            <li>3 à 5 pages sur mesure</li>
+            <li>Design professionnel personnalisé</li>
+            <li>Textes adaptés à votre activité</li>
+            <li>SEO intégré (sitemap, robots, schema.org)</li>
+            <li>Formulaire de contact fonctionnel</li>
+            <li>Google Analytics inclus</li>
+            <li>1 aller-retour de correction</li>
+            <li>Livraison 24–48h</li>
+          </ul>
+          <a href="questionnaire.html" class="btn btn-primary" style="width:100%;justify-content:center;">Choisir Pro →</a>
+        </div>
+        <div class="pricing-card fade-up delay-2">
+          <div class="pricing-header">
+            <div class="pricing-tier">Premium</div>
+            <div class="pricing-price">399 <span>€</span></div>
+            <div class="pricing-desc">Portfolio complet avec design premium et conversion optimisée.</div>
+          </div>
+          <ul class="pricing-features">
+            <li>6 pages et plus</li>
+            <li>Design premium sur mesure</li>
+            <li>Textes + structure conversion</li>
+            <li>SEO avancé (Core Web Vitals)</li>
+            <li>Portfolio / galerie + FAQ</li>
+            <li>Animations et UI avancées</li>
+            <li>2 allers-retours de correction</li>
+            <li>Livraison prioritaire 24h</li>
+          </ul>
+          <a href="questionnaire.html" class="btn btn-outline" style="width:100%;justify-content:center;">Choisir Premium →</a>
+        </div>
+      </div>
+      <div class="guarantee-banner fade-up" style="margin-top:40px;">
+        <span class="guarantee-icon">🛡️</span>
+        <div>
+          <strong>Satisfait ou remboursé</strong>
+          <p>Si la proposition ne vous convient pas, vous ne payez rien. Aucun engagement avant validation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-label fade-up" style="justify-content:center;">Freelances</div>
+      <h2 class="fade-up delay-1">Votre site, livré en 24h</h2>
+      <p class="fade-up delay-2">
+        Remplissez le questionnaire en 5 minutes.<br>
+        Recevez votre site freelance professionnel sous 24–48h.
+      </p>
+      <a href="questionnaire.html" class="btn btn-primary btn-lg fade-up delay-3">
+        Démarrer mon projet →
+      </a>
+      <div class="cta-features fade-up delay-4">
+        <div class="cta-feature"><div class="cta-feature-dot"></div> Dès 149 €</div>
+        <div class="cta-feature"><div class="cta-feature-dot"></div> Fichiers 100 % à vous</div>
+        <div class="cta-feature"><div class="cta-feature-dot"></div> Zéro abonnement</div>
+        <div class="cta-feature"><div class="cta-feature-dot"></div> Paiement après validation</div>
+      </div>
+      <div class="urgency-note fade-up delay-5">
+        ⚡ Places limitées — <strong style="color:var(--accent);">5 projets max par semaine</strong>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Site<span>Craft</span></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="creation-site-artisan.html">Artisans</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+        <li><a href="mailto:contact@sitecraft.fr">contact@sitecraft.fr</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 SiteCraft. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top  = mouseY + 'px';
+});
+function animateCursor() {
+  curX += (mouseX - curX) * 0.12;
+  curY += (mouseY - curY) * 0.12;
+  cursor.style.left = curX + 'px';
+  cursor.style.top  = curY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a, button, .btn, .metier-card, .seo-value-card, .pricing-card, .testimonial-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => mobileNav.classList.remove('open'));
+function closeMobile() { mobileNav.classList.remove('open'); }
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+const themeToggle=document.getElementById('themeToggle');const html=document.documentElement;const savedTheme=localStorage.getItem('theme')||'dark';html.setAttribute('data-theme',savedTheme);if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
+</script>
+</body>
+</html>

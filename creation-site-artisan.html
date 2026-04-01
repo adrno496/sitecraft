@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Création site web artisan — Livré en 24h | SiteCraft</title>
+  <meta name="description" content="Site web professionnel pour artisan : plombier, électricien, menuisier, maçon. Livré en 24–48h dès 149 €. SEO local inclus. Paiement après validation." />
+  <meta name="keywords" content="site web artisan, création site web plombier, site internet électricien, site web menuisier, site artisan pas cher, vitrine locale artisan" />
+  <meta property="og:title" content="Création site web artisan — Livré en 24h dès 149 € | SiteCraft" />
+  <meta property="og:description" content="Site web professionnel pour artisan. Livré en 24–48h dès 149 €. SEO local inclus. Fichiers HTML/CSS que vous possédez." />
+  <meta property="og:url" content="https://sitecraft.fr/creation-site-artisan" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://sitecraft.fr/creation-site-artisan" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- MOBILE NAV OVERLAY -->
+<nav class="navbar-mobile" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Fermer">✕</button>
+  <a href="index.html" onclick="closeMobile()">Accueil</a>
+  <a href="index.html#offre" onclick="closeMobile()">Offres</a>
+  <a href="index.html#faq" onclick="closeMobile()">FAQ</a>
+  <a href="questionnaire.html" class="btn btn-primary" style="margin-top:16px;">Démarrer mon projet</a>
+</nav>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
+    <ul class="navbar-links">
+      <li><a href="index.html#fonctionnement">Fonctionnement</a></li>
+      <li><a href="index.html#offre">Offres</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">☀️</button>
+      <a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Démarrer mon projet</a>
+    </div>
+    <button class="navbar-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="seo-page">
+
+  <!-- ── HERO ── -->
+  <section class="seo-hero">
+    <div class="container">
+      <div class="hero-badge fade-up" style="margin-bottom:24px;">
+        <span>🔨</span> Spécialiste artisans &amp; TPE locales
+      </div>
+      <h1 class="fade-up delay-1">Création de site web<br>pour artisans</h1>
+      <p class="fade-up delay-2">
+        Plombier, électricien, menuisier, peintre, maçon — votre métier mérite une présence en ligne professionnelle. Obtenez votre site vitrine livré en 24–48h, dès 149 €, avec SEO local intégré.
+      </p>
+      <div class="seo-hero-cta fade-up delay-3">
+        <a href="questionnaire.html" class="btn btn-primary btn-lg">Demander mon site artisan →</a>
+        <a href="index.html#offre" class="btn btn-outline btn-lg">Voir les offres</a>
+      </div>
+      <div class="hero-trust fade-up delay-4">
+        <span>✔ SEO local intégré</span>
+        <span>✔ Livraison 24–48h</span>
+        <span>✔ Dès 149 €</span>
+        <span>✔ Paiement après validation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MÉTIERS COUVERTS ── -->
+  <section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Tous les métiers</div>
+        <h2>Pour tous les artisans</h2>
+        <p>Quel que soit votre corps de métier, je crée un site adapté à votre activité et à votre zone géographique.</p>
+      </div>
+      <div class="metiers-grid">
+        <div class="metier-card fade-up">
+          <span class="metier-emoji">🔧</span>
+          <h3>Plombier</h3>
+          <p>Urgences, installations, rénovations. Site local pour capter vos clients de zone.</p>
+        </div>
+        <div class="metier-card fade-up delay-1">
+          <span class="metier-emoji">⚡</span>
+          <h3>Électricien</h3>
+          <p>Tableau électrique, prises, domotique. Mettez en avant vos certifications.</p>
+        </div>
+        <div class="metier-card fade-up delay-2">
+          <span class="metier-emoji">🪵</span>
+          <h3>Menuisier</h3>
+          <p>Fenêtres, portes, meubles sur mesure. Affichez vos réalisations avec photos.</p>
+        </div>
+        <div class="metier-card fade-up delay-3">
+          <span class="metier-emoji">🏗️</span>
+          <h3>Maçon</h3>
+          <p>Gros œuvre, rénovation, extension. Montrez vos chantiers et votre savoir-faire.</p>
+        </div>
+        <div class="metier-card fade-up">
+          <span class="metier-emoji">🎨</span>
+          <h3>Peintre</h3>
+          <p>Intérieur, extérieur, décoration. Un portfolio visuel pour convaincre vos prospects.</p>
+        </div>
+        <div class="metier-card fade-up delay-1">
+          <span class="metier-emoji">🏠</span>
+          <h3>Couvreur</h3>
+          <p>Toiture, zinguerie, isolation. Votre expertise mise en avant avec garanties décennale.</p>
+        </div>
+        <div class="metier-card fade-up delay-2">
+          <span class="metier-emoji">❄️</span>
+          <h3>Chauffagiste</h3>
+          <p>Chaudière, pompe à chaleur, climatisation. Activité saisonnière bien référencée.</p>
+        </div>
+        <div class="metier-card fade-up delay-3">
+          <span class="metier-emoji">🔩</span>
+          <h3>Autre métier</h3>
+          <p>Serrurier, carreleur, plâtrier, jardinier… Quel que soit votre métier, j'adapte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALEUR AJOUTÉE ── -->
+  <section>
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Pourquoi SiteCraft</div>
+        <h2>Un site artisan qui travaille pour vous</h2>
+      </div>
+      <div class="seo-values-grid">
+        <div class="seo-value-card fade-up">
+          <span class="seo-value-icon">📍</span>
+          <h3>SEO local intégré</h3>
+          <p>Votre site est optimisé pour apparaître sur Google quand vos clients cherchent un artisan dans votre ville. Schema.org, balises locales, sitemap — tout est inclus.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-1">
+          <span class="seo-value-icon">⚡</span>
+          <h3>Livraison en 24–48h</h3>
+          <p>Pas besoin d'attendre des semaines. Remplissez le questionnaire, recevez votre site complet sous 24 à 48 heures. Opérationnel dès réception.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-2">
+          <span class="seo-value-icon">🔑</span>
+          <h3>100 % à vous</h3>
+          <p>Vous recevez tous les fichiers source. Aucun abonnement, aucune dépendance. Hébergement gratuit via GitHub + Vercel, expliqué dans le guide PDF inclus.</p>
+        </div>
+        <div class="seo-value-card fade-up">
+          <span class="seo-value-icon">📱</span>
+          <h3>Mobile-first</h3>
+          <p>Vos clients cherchent un artisan depuis leur téléphone. Votre site est parfaitement adapté mobile, rapide et fluide — crucial pour votre référencement Google.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-1">
+          <span class="seo-value-icon">✍️</span>
+          <h3>Textes sur mesure</h3>
+          <p>Je rédige les textes adaptés à votre activité, votre zone, et votre style. Pas de contenu générique : chaque mot est pensé pour convaincre vos prospects.</p>
+        </div>
+        <div class="seo-value-card fade-up delay-2">
+          <span class="seo-value-icon">🛡️</span>
+          <h3>Sans risque</h3>
+          <p>Vous ne payez qu'après validation de la proposition. Si le résultat ne vous convient pas, vous ne devez rien. Zéro engagement, zéro prise de tête.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="how-bg">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 64px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Le processus</div>
+        <h2>Comment ça marche ?</h2>
+        <p>4 étapes simples pour avoir votre vitrine artisan en ligne.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-item fade-up">
+          <div class="step-number">01</div>
+          <h3>Questionnaire</h3>
+          <p>5 à 10 minutes pour nous parler de votre métier, votre zone, vos clients et votre style.</p>
+        </div>
+        <div class="step-item active fade-up delay-1">
+          <div class="step-number">02</div>
+          <h3>Création sur mesure</h3>
+          <p>Je conçois votre site artisan : design, textes métier, SEO local, formulaire de devis. 24–48h.</p>
+        </div>
+        <div class="step-item fade-up delay-2">
+          <div class="step-number">03</div>
+          <h3>Validation</h3>
+          <p>Vous recevez la proposition. Vous validez ou demandez des ajustements — aucun engagement.</p>
+        </div>
+        <div class="step-item fade-up delay-3">
+          <div class="step-number">04</div>
+          <h3>Livraison ZIP</h3>
+          <p>Après paiement, vous recevez tous les fichiers + guide mise en ligne. En ligne en 15 min.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OFFRES ── -->
+  <section id="tarifs">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Tarifs artisan</div>
+        <h2>Un prix clair, sans surprise</h2>
+        <p>Choisissez l'offre adaptée à votre projet. Paiement uniquement après validation.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-up">
+          <div class="pricing-header">
+            <div class="pricing-tier">Starter</div>
+            <div class="pricing-price">149 <span>€</span></div>
+            <div class="pricing-desc">Idéal pour démarrer avec une page vitrine impactante.</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Landing page 1 page</li>
+            <li>Design professionnel personnalisé</li>
+            <li>Textes adaptés à votre métier</li>
+            <li>SEO local intégré</li>
+            <li>Formulaire de contact / devis</li>
+            <li>Responsive mobile</li>
+            <li>Guide mise en ligne PDF</li>
+            <li>Livraison 24–48h</li>
+          </ul>
+          <a href="questionnaire.html" class="btn btn-outline" style="width:100%;justify-content:center;">Choisir Starter →</a>
+        </div>
+        <div class="pricing-card best-seller fade-up delay-1">
+          <div class="pricing-badge">⭐ Le plus choisi</div>
+          <div class="pricing-header">
+            <div class="pricing-tier">Pro</div>
+            <div class="pricing-price">249 <span>€</span></div>
+            <div class="pricing-desc">Site complet multi-pages pour convaincre et générer des devis.</div>
+          </div>
+          <ul class="pricing-features">
+            <li>3 à 5 pages sur mesure</li>
+            <li>Design professionnel personnalisé</li>
+            <li>Textes métier + zone géographique</li>
+            <li>SEO intégré (sitemap, robots, schema.org)</li>
+            <li>Formulaire de devis fonctionnel</li>
+            <li>Google Analytics inclus</li>
+            <li>1 aller-retour de correction</li>
+            <li>Livraison 24–48h</li>
+          </ul>
+          <a href="questionnaire.html" class="btn btn-primary" style="width:100%;justify-content:center;">Choisir Pro →</a>
+        </div>
+        <div class="pricing-card fade-up delay-2">
+          <div class="pricing-header">
+            <div class="pricing-tier">Premium</div>
+            <div class="pricing-price">399 <span>€</span></div>
+            <div class="pricing-desc">Pour les artisans ambitieux avec portfolio et conversion maximisée.</div>
+          </div>
+          <ul class="pricing-features">
+            <li>6 pages et plus</li>
+            <li>Design premium sur mesure</li>
+            <li>Textes + structure conversion</li>
+            <li>SEO avancé (Core Web Vitals)</li>
+            <li>Section portfolio / réalisations</li>
+            <li>Animations et UI avancées</li>
+            <li>2 allers-retours de correction</li>
+            <li>Livraison prioritaire 24h</li>
+          </ul>
+          <a href="questionnaire.html" class="btn btn-outline" style="width:100%;justify-content:center;">Choisir Premium →</a>
+        </div>
+      </div>
+      <div class="guarantee-banner fade-up" style="margin-top:40px;">
+        <span class="guarantee-icon">🛡️</span>
+        <div>
+          <strong>Satisfait ou remboursé</strong>
+          <p>Si la proposition ne vous convient pas, vous ne payez rien. Aucun engagement avant validation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TÉMOIGNAGES ── -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Avis artisans</div>
+        <h2>Ce qu'ils en disent</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Mon site a été livré en moins de 48h, exactement ce que je demandais. Design propre, textes adaptés à mon activité de plombier. J'ai pu le mettre en ligne tout seul grâce au guide."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JM</div>
+            <div>
+              <strong>Jean-Marc T.</strong>
+              <small>Plombier · La Roche-sur-Yon</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"J'avais essayé Wix et Squarespace — trop compliqué, trop cher. Avec SiteCraft j'ai reçu un vrai site pro en 24h. Le SEO est déjà là. Je recommande à tous mes collègues artisans."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SB</div>
+            <div>
+              <strong>Sophie B.</strong>
+              <small>Menuisière · Vendée</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Excellent rapport qualité/prix. J'ai pris l'offre Pro avec le setup Google Business — c'est du travail sérieux. Mon site remonte déjà sur Google en 3 semaines."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RD</div>
+            <div>
+              <strong>Romain D.</strong>
+              <small>Électricien · Nantes</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-label fade-up" style="justify-content:center;">Artisans</div>
+      <h2 class="fade-up delay-1">Prêt à avoir votre site artisan ?</h2>
+      <p class="fade-up delay-2">
+        Remplissez le questionnaire en 5 minutes.<br>
+        Recevez votre site professionnel sous 24–48h.
+      </p>
+      <a href="questionnaire.html" class="btn btn-primary btn-lg fade-up delay-3">
+        Démarrer mon projet →
+      </a>
+      <div class="cta-features fade-up delay-4">
+        <div class="cta-feature"><div class="cta-feature-dot"></div> Dès 149 €</div>
+        <div class="cta-feature"><div class="cta-feature-dot"></div> SEO local inclus</div>
+        <div class="cta-feature"><div class="cta-feature-dot"></div> Paiement après validation</div>
+        <div class="cta-feature"><div class="cta-feature-dot"></div> Livraison 24–48h</div>
+      </div>
+      <div class="urgency-note fade-up delay-5">
+        ⚡ Places limitées — <strong style="color:var(--accent);">5 projets max par semaine</strong>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Site<span>Craft</span></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="site-web-freelance.html">Freelances</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+        <li><a href="mailto:contact@sitecraft.fr">contact@sitecraft.fr</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 SiteCraft. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top  = mouseY + 'px';
+});
+function animateCursor() {
+  curX += (mouseX - curX) * 0.12;
+  curY += (mouseY - curY) * 0.12;
+  cursor.style.left = curX + 'px';
+  cursor.style.top  = curY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a, button, .btn, .metier-card, .seo-value-card, .pricing-card, .testimonial-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => mobileNav.classList.remove('open'));
+function closeMobile() { mobileNav.classList.remove('open'); }
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+const themeToggle=document.getElementById('themeToggle');const html=document.documentElement;const savedTheme=localStorage.getItem('theme')||'dark';html.setAttribute('data-theme',savedTheme);if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
+</script>
+</body>
+</html>

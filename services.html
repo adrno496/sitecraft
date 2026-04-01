@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos offres de création de site web — SiteCraft</title>
+  <meta name="description" content="3 offres claires pour votre site web : Starter 149€, Pro 249€, Premium 399€. Livré en 24–48h, sans abonnement, fichiers HTML/CSS inclus." />
+  <link rel="canonical" href="https://sitecraft.fr/services.html" />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Cursor : diamant → carré sur hover ── */
+    .cursor {
+      width: 26px;
+      height: 26px;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      background: var(--accent-dim);
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: width .3s cubic-bezier(.16,1,.3,1),
+                  height .3s cubic-bezier(.16,1,.3,1),
+                  transform .3s cubic-bezier(.16,1,.3,1),
+                  box-shadow .3s;
+    }
+    .cursor.hover {
+      width: 46px;
+      height: 46px;
+      transform: translate(-50%, -50%) rotate(0deg);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    /* ── Page layout ── */
+    .services-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .services-hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-top: 16px;
+    }
+
+    /* Grille des offres */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 0 0 80px;
+    }
+    .offer-card {
+      background: var(--surface2);
+      border: 1px solid rgba(200,245,66,.12);
+      border-radius: 16px;
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: border-color .2s, transform .2s;
+    }
+    .offer-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .offer-card.best {
+      border-color: var(--accent);
+      background: linear-gradient(160deg, #0f1a00 0%, var(--surface2) 60%);
+      position: relative;
+    }
+    [data-theme="light"] .offer-card.best {
+      background: linear-gradient(160deg, #f5ffe0 0%, var(--surface2) 60%);
+    }
+    .offer-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #0a0a0a;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .offer-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .offer-price {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .offer-price sup {
+      font-size: 1rem;
+      vertical-align: super;
+      margin-right: 2px;
+    }
+    .offer-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .offer-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .offer-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Pourquoi SiteCraft */
+    .why-section {
+      padding: 60px 0;
+      border-top: 1px solid rgba(200,245,66,.1);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .why-card {
+      background: var(--surface2);
+      border: 1px solid rgba(200,245,66,.1);
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+    .why-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .why-card strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .why-card p {
+      color: var(--muted);
+      font-size: .875rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 60px 0 100px;
+      border-top: 1px solid rgba(200,245,66,.1);
+      max-width: 720px;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(200,245,66,.1);
+      padding: 20px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .faq-a {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .offers-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
+    <ul class="navbar-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">☀️</button>
+      <a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Demander mon site</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <!-- H1 -->
+    <div class="services-hero fade-up">
+      <p class="section-label">Tarifs</p>
+      <h1>Nos offres de création de site web</h1>
+      <p>Trois formules claires. Pas d'abonnement. Vous recevez les fichiers — vous êtes propriétaire.</p>
+    </div>
+
+    <!-- Grille des offres -->
+    <div class="offers-grid fade-up" data-delay="100">
+
+      <!-- Starter -->
+      <div class="offer-card">
+        <div class="offer-name">Starter</div>
+        <div class="offer-price"><sup>€</sup>149</div>
+        <ul class="offer-features">
+          <li>1 page (accueil)</li>
+          <li>Design responsive</li>
+          <li>SEO de base</li>
+          <li>Livraison ZIP en 24h</li>
+        </ul>
+        <a href="questionnaire.html" class="btn btn-outline" style="text-align:center;">Choisir Starter</a>
+      </div>
+
+      <!-- Pro (recommandé) -->
+      <div class="offer-card best">
+        <div class="offer-badge">Recommandé</div>
+        <div class="offer-name">Pro</div>
+        <div class="offer-price"><sup>€</sup>249</div>
+        <ul class="offer-features">
+          <li>3 à 5 pages</li>
+          <li>Design sur mesure</li>
+          <li>SEO avancé + Google Analytics</li>
+          <li>Formulaire de contact</li>
+          <li>Livraison ZIP en 48h</li>
+        </ul>
+        <a href="questionnaire.html" class="btn btn-primary" style="text-align:center;">Choisir Pro</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="offer-card">
+        <div class="offer-name">Premium</div>
+        <div class="offer-price"><sup>€</sup>399</div>
+        <ul class="offer-features">
+          <li>Jusqu'à 10 pages</li>
+          <li>Blog ou catalogue</li>
+          <li>SEO local optimisé</li>
+          <li>Mise en ligne incluse</li>
+          <li>Livraison ZIP en 48h</li>
+        </ul>
+        <a href="questionnaire.html" class="btn btn-outline" style="text-align:center;">Choisir Premium</a>
+      </div>
+
+    </div>
+
+    <!-- Pourquoi SiteCraft -->
+    <div class="why-section fade-up" data-delay="150">
+      <p class="section-label">Pourquoi nous</p>
+      <h2>Pourquoi choisir SiteCraft ?</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <strong>Livraison rapide</strong>
+          <p>Votre site en 24 à 48h, pas en 4 semaines. Vous êtes opérationnel tout de suite.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📂</div>
+          <strong>Fichiers à vous</strong>
+          <p>Vous recevez les fichiers HTML/CSS. Vous les gardez, peu importe la suite.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🚫</div>
+          <strong>Zéro abonnement</strong>
+          <p>Vous payez une fois. Pas de mensualité cachée, pas de contrat qui vous piège.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔍</div>
+          <strong>SEO intégré</strong>
+          <p>Balises, structure, vitesse de chargement — votre site est prêt pour Google dès le départ.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section fade-up" data-delay="200">
+      <p class="section-label">FAQ</p>
+      <h2>Questions fréquentes</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">Combien de temps pour recevoir mon site ?</p>
+        <p class="faq-a">En général 24h pour le Starter, 48h pour le Pro et le Premium. Je vous envoie une estimation précise après réception de votre questionnaire.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Est-ce que je possède les fichiers ?</p>
+        <p class="faq-a">Oui, à 100 %. Vous recevez un ZIP avec tous vos fichiers HTML, CSS et images. Vous pouvez les héberger où vous voulez, les modifier, les confier à quelqu'un d'autre.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Peut-on modifier le site après livraison ?</p>
+        <p class="faq-a">Bien sûr. Les fichiers sont simples et lisibles. Je propose aussi des retouches ponctuelles à la demande — contactez-moi pour un devis rapide.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Y a-t-il un abonnement mensuel ?</p>
+        <p class="faq-a">Non. Vous payez une fois au moment de la livraison, après validation du site. Aucun frais récurrent de ma part. L'hébergement (Vercel, Netlify, OVH…) vous revient quelques euros par mois maximum.</p>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Site<span>Craft</span></div>
+      <ul class="footer-links">
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 SiteCraft.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+const cursorDot=document.getElementById('cursorDot');
+let mouseX=0,mouseY=0,curX=0,curY=0;
+document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursorDot.style.left=mouseX+'px';cursorDot.style.top=mouseY+'px';});
+function ac(){curX+=(mouseX-curX)*0.12;curY+=(mouseY-curY)*0.12;cursor.style.left=curX+'px';cursor.style.top=curY+'px';requestAnimationFrame(ac);}ac();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
+});
+const themeToggle=document.getElementById('themeToggle');
+const html=document.documentElement;
+const savedTheme=localStorage.getItem('theme')||'dark';
+html.setAttribute('data-theme',savedTheme);
+if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
+document.querySelectorAll('.fade-up').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';setTimeout(()=>{el.style.transition='opacity 0.7s ease, transform 0.7s ease';el.style.opacity='1';el.style.transform='translateY(0)';},(parseInt(el.dataset.delay)||0));});
+</script>
+</body>
+</html>

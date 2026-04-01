@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions légales — SiteCraft</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
+    <div style="display:flex;align-items:center;gap:12px;"><button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">☀️</button><a href="index.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.85rem;">← Retour</a></div>
+  </div>
+</nav>
+
+<main class="legal-page">
+  <div class="container" style="max-width:800px;">
+    <div class="section-label">Légal</div>
+    <h1>Mentions légales</h1>
+
+    <div class="legal-content">
+      <h2>1. Éditeur du site</h2>
+      <p>
+        Le site <strong>sitecraft.fr</strong> est édité par :<br>
+        <strong>[Votre Nom / Raison sociale]</strong><br>
+        Statut : Auto-entrepreneur / Micro-entreprise<br>
+        SIRET : [Numéro SIRET]<br>
+        Adresse : [Votre adresse complète]<br>
+        Email : <a href="mailto:contact@sitecraft.fr" style="color:var(--accent);">contact@sitecraft.fr</a><br>
+        Téléphone : [Votre numéro]
+      </p>
+
+      <h2>2. Hébergement</h2>
+      <p>
+        Ce site est hébergé par :<br>
+        <strong>Vercel Inc.</strong><br>
+        440 N Barranca Avenue #4133<br>
+        Covina, CA 91723, États-Unis<br>
+        Site web : <a href="https://vercel.com" style="color:var(--accent);" target="_blank" rel="noopener">vercel.com</a>
+      </p>
+
+      <h2>3. Propriété intellectuelle</h2>
+      <p>
+        L'ensemble du contenu de ce site (textes, images, design, code) est protégé par le droit d'auteur et appartient à SiteCraft, sauf mention contraire. Toute reproduction, distribution ou utilisation sans autorisation écrite préalable est strictement interdite.
+      </p>
+
+      <h2>4. Responsabilité</h2>
+      <p>
+        SiteCraft s'efforce de maintenir les informations de ce site à jour et exactes. Toutefois, SiteCraft ne saurait être tenu responsable des erreurs, omissions ou résultats qui pourraient être obtenus par un mauvais usage de ces informations.
+      </p>
+      <p>
+        SiteCraft se réserve le droit de modifier, corriger, suspendre ou interrompre l'accès à tout ou partie du site à tout moment, sans préavis.
+      </p>
+
+      <h2>5. Liens hypertextes</h2>
+      <p>
+        Ce site peut contenir des liens vers des sites tiers. SiteCraft n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou à leur politique de confidentialité.
+      </p>
+
+      <h2>6. Droit applicable</h2>
+      <p>
+        Le présent site et ses mentions légales sont soumis au droit français. En cas de litige, les tribunaux compétents sont ceux du ressort de [Votre ville].
+      </p>
+
+      <h2>7. Contact</h2>
+      <p>
+        Pour toute question relative à ces mentions légales, vous pouvez nous contacter à l'adresse suivante :<br>
+        <a href="mailto:contact@sitecraft.fr" style="color:var(--accent);">contact@sitecraft.fr</a>
+      </p>
+
+      <p style="margin-top:40px;font-size:0.85rem;color:var(--muted);">
+        Dernière mise à jour : Décembre 2025
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Site<span>Craft</span></div>
+      <ul class="footer-links">
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 SiteCraft.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX=0,mouseY=0,curX=0,curY=0;
+document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursorDot.style.left=mouseX+'px';cursorDot.style.top=mouseY+'px';});
+function ac(){curX+=(mouseX-curX)*0.12;curY+=(mouseY-curY)*0.12;cursor.style.left=curX+'px';cursor.style.top=curY+'px';requestAnimationFrame(ac);}ac();
+const themeToggle=document.getElementById('themeToggle');
+const html=document.documentElement;
+const savedTheme=localStorage.getItem('theme')||'dark';
+html.setAttribute('data-theme',savedTheme);
+if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
+</script>
+</body>
+</html>

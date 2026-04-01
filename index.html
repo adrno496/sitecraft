@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SiteCraft — Création site web artisan & freelance | Livré en 24h dès 149 €</title>
+  <meta name="description" content="Site web professionnel livré en 24–48h dès 149 €. Design sur mesure, SEO intégré, fichiers HTML/CSS que vous possédez à 100 %. Sans abonnement. Paiement après validation." />
+  <meta name="keywords" content="création site web artisan, site web freelance pas cher, site internet auto-entrepreneur, création site rapide livraison 24h, site web professionnel sans abonnement" />
+  <meta name="author" content="SiteCraft" />
+  <meta property="og:title" content="SiteCraft — Site web professionnel livré en 24h | Dès 149 €" />
+  <meta property="og:description" content="Site sur mesure, SEO intégré, fichiers que vous possédez. Sans abonnement. Paiement après validation. Livré en 24–48h." />
+  <meta property="og:image" content="https://sitecraft.fr/og-image.jpg" />
+  <meta property="og:url" content="https://sitecraft.fr/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://sitecraft.fr/" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- MOBILE NAV OVERLAY -->
+<nav class="navbar-mobile" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Fermer">✕</button>
+  <a href="#fonctionnement" onclick="closeMobile()">Fonctionnement</a>
+  <a href="services.html" onclick="closeMobile()">Services</a>
+  <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
+  <a href="a-propos.html" onclick="closeMobile()">À propos</a>
+  <a href="contact.html" onclick="closeMobile()">Contact</a>
+  <a href="questionnaire.html" class="btn btn-primary" style="margin-top:16px;">Demander mon site</a>
+</nav>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="/" class="navbar-logo">Site<span>Craft</span></a>
+    <ul class="navbar-links">
+      <li><a href="#fonctionnement">Fonctionnement</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">🌙</button>
+      <a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Demander mon site</a>
+    </div>
+    <button class="navbar-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge fade-up">
+          <span>✦</span> Livraison sous 24–48h
+        </div>
+        <h1 class="fade-up delay-1">
+          <span class="hero-title-line">Votre site web</span>
+          <span class="hero-title-line accent">professionnel</span>
+          <span class="hero-title-line">livré en 24h — <span class="accent">dès 149 €</span></span>
+        </h1>
+        <p class="fade-up delay-2">
+          Vous recevez un dossier ZIP complet : fichiers HTML/CSS, SEO, guide de mise en ligne PDF. Vous mettez en ligne vous-même en 15 min — ou je le fais pour vous.
+        </p>
+        <div class="hero-cta fade-up delay-3">
+          <a href="questionnaire.html" class="btn btn-primary btn-lg">Demander mon site →</a>
+          <a href="#fonctionnement" class="btn btn-outline btn-lg">Voir comment ça marche</a>
+        </div>
+        <div class="hero-trust fade-up delay-4">
+          <span>✔ Site prêt en 24–48h</span>
+          <span>✔ Aucun abonnement</span>
+          <span>✔ Paiement après validation</span>
+          <span>✔ Propriétaire à 100 %</span>
+          <span>✔ Mise en ligne en 15 min</span>
+        </div>
+      </div>
+      <div class="hero-visual fade-up delay-2">
+        <div class="hero-card">
+          <span class="floating-tag">📦 Livraison ZIP</span>
+          <div class="hero-card-title">Contenu du dossier livré</div>
+          <div class="file-list">
+            <div class="file-item">
+              <div class="file-icon html">🌐</div>
+              <span class="file-name">Page d'accueil</span>
+              <span class="file-size">Votre vitrine principale</span>
+            </div>
+            <div class="file-item">
+              <div class="file-icon html">📋</div>
+              <span class="file-name">Page services</span>
+              <span class="file-size">Vos offres détaillées</span>
+            </div>
+            <div class="file-item">
+              <div class="file-icon css">🎨</div>
+              <span class="file-name">Design & mise en page</span>
+              <span class="file-size">Couleurs et style</span>
+            </div>
+            <div class="file-item">
+              <div class="file-icon xml">📍</div>
+              <span class="file-name">Plan du site</span>
+              <span class="file-size">Référencement Google</span>
+            </div>
+            <div class="file-item">
+              <div class="file-icon pdf">📖</div>
+              <span class="file-name">Guide mise en ligne</span>
+              <span class="file-size">Étapes pas-à-pas</span>
+            </div>
+            <div class="file-item">
+              <div class="file-icon pdf">✏️</div>
+              <span class="file-name">Guide modifications</span>
+              <span class="file-size">Personnalisez seul</span>
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            <div class="hero-zip-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              votre-site.zip prêt à déployer
+            </div>
+            <span style="font-size:0.8rem;color:var(--muted);">~12 fichiers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ COMPTEURS ══════════════════════════ -->
+<section class="counters">
+  <div class="container">
+    <div class="counters-grid">
+      <div class="counter-item fade-up">
+        <div class="counter-value" data-target="149" data-suffix="€">0</div>
+        <div class="counter-label">Prix de départ</div>
+      </div>
+      <div class="counter-item fade-up delay-1">
+        <div class="counter-value" data-target="24" data-suffix="h">0</div>
+        <div class="counter-label">Délai de livraison</div>
+      </div>
+      <div class="counter-item fade-up delay-2">
+        <div class="counter-value" data-target="50" data-suffix="+ sites">0</div>
+        <div class="counter-label">Livrés</div>
+      </div>
+      <div class="counter-item fade-up delay-3">
+        <div class="counter-value" data-target="100" data-suffix="%">0</div>
+        <div class="counter-label">Propriété des fichiers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ TÉMOIGNAGES ══════════════════════════ -->
+<section id="temoignages" class="testimonials-section">
+  <div class="container">
+    <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+      <div class="section-label" style="justify-content:center;">Ils nous ont fait confiance</div>
+      <h2>Ce qu'ils en disent</h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"Mon site a été livré en moins de 48h, exactement ce que je demandais. Design propre, textes adaptés à mon activité de plombier. J'ai pu le mettre en ligne tout seul grâce au guide. Franchement bluffant pour ce prix."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div>
+            <strong>Jean-Marc T.</strong>
+            <small>Plombier · La Roche-sur-Yon</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"J'avais essayé Wix et Squarespace — trop compliqué, trop cher. Avec SiteCraft j'ai reçu un vrai site pro en 24h. Les fichiers sont propres, le SEO est déjà là. Je recommande à tous mes collègues artisans."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SB</div>
+          <div>
+            <strong>Sophie B.</strong>
+            <small>Menuisière · Vendée</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"Excellent rapport qualité/prix. J'ai pris l'offre Pro avec le setup Google Business en option — c'est du travail sérieux. Mon site remonte déjà sur Google en 3 semaines. Merci !"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RD</div>
+          <div>
+            <strong>Romain D.</strong>
+            <small>Électricien · Nantes</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CE QUE VOUS RECEVEZ ══════════════════════════ -->
+<section id="livrable">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Le livrable</div>
+      <h2>Ce que vous recevez</h2>
+      <p>Un dossier ZIP complet, prêt à déployer. Tout ce dont vous avez besoin pour être en ligne en quelques clics.</p>
+    </div>
+    <div class="receive-grid">
+      <div class="receive-card fade-up">
+        <div class="card-icon">💻</div>
+        <h3>Tous les fichiers du site</h3>
+        <p>Code propre, rapide et bien structuré. Votre site fonctionne sans aucun CMS ni plugin tiers.</p>
+        <ul>
+          <li>HTML sémantique</li>
+          <li>CSS optimisé (responsive)</li>
+          <li>SEO intégré (balises, sitemap, robots)</li>
+          <li>Vitesse de chargement maximale</li>
+          <li>Code commenté et lisible</li>
+        </ul>
+      </div>
+      <div class="receive-card fade-up delay-1">
+        <div class="card-icon">📄</div>
+        <h3>Guide PDF mise en ligne</h3>
+        <p>Pas besoin d'être développeur. Notre guide pas-à-pas vous accompagne de A à Z pour publier votre site gratuitement.</p>
+        <ul>
+          <li>Créer un dépôt GitHub</li>
+          <li>Déployer sur Vercel (gratuit)</li>
+          <li>Connecter votre nom de domaine</li>
+          <li>Captures d'écran incluses</li>
+        </ul>
+      </div>
+      <div class="receive-card fade-up delay-2">
+        <div class="card-icon">✏️</div>
+        <h3>Guide PDF modification</h3>
+        <p>Changez vos textes, couleurs, photos en toute autonomie. Vous n'avez besoin de personne pour maintenir votre site.</p>
+        <ul>
+          <li>Modifier textes et images</li>
+          <li>Changer les couleurs</li>
+          <li>Ajouter / supprimer des sections</li>
+          <li>Mettre à jour vos infos facilement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ PORTFOLIO ══════════════════════════ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+      <div class="section-label" style="justify-content:center;">Exemples de réalisations</div>
+      <h2>Sites livrés récemment</h2>
+      <p>Chaque site est créé sur mesure à partir des informations du client.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card fade-up">
+        <div class="portfolio-preview">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="portfolio-browser-url">menuiserie-piveteau.fr</div>
+          </div>
+          <div class="portfolio-screenshot artisan-menuisier">
+            <div class="mock-hero">
+              <div class="mock-badge">Artisan Menuisier</div>
+              <div class="mock-h1">Menuiserie Piveteau</div>
+              <div class="mock-sub">La Ferrière · Vendée</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span>Artisan</span><span>5 pages</span><span>SEO local</span>
+          </div>
+          <h3>Menuiserie Piveteau</h3>
+          <p>Site vitrine local avec pages Services, Réalisations, Contact et formulaire de devis intégré.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-up delay-1">
+        <div class="portfolio-preview">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="portfolio-browser-url">diagnostic-littoral-vendee.fr</div>
+          </div>
+          <div class="portfolio-screenshot diagnostic">
+            <div class="mock-hero">
+              <div class="mock-badge">Diagnostic immobilier</div>
+              <div class="mock-h1">Diagnostic Littoral Vendée</div>
+              <div class="mock-sub">Vendée · Loire-Atlantique</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span>Immobilier</span><span>6 pages</span><span>SEO</span>
+          </div>
+          <h3>Diagnostic Littoral Vendée</h3>
+          <p>Site multi-pages pour diagnostiqueur immobilier certifié. Tarifs, services, zone d'intervention.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-up delay-2">
+        <div class="portfolio-preview">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="portfolio-browser-url">votre-site.fr</div>
+          </div>
+          <div class="portfolio-screenshot placeholder-site">
+            <div class="mock-hero">
+              <div class="mock-badge">Votre activité</div>
+              <div class="mock-h1">Votre prochain site</div>
+              <div class="mock-sub">Livré en 24–48h</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span>Sur mesure</span><span>Dès 149 €</span><span>24h</span>
+          </div>
+          <h3>Votre projet ici</h3>
+          <p>Remplissez le questionnaire et rejoignez nos clients satisfaits. Livraison sous 24 à 48h.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="fade-up">
+      <a href="questionnaire.html" class="btn btn-outline btn-lg">Démarrer mon projet →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ COMMENT ÇA MARCHE ══════════════════════════ -->
+<section class="how-bg" id="fonctionnement">
+  <div class="container">
+    <div class="section-header fade-up" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="section-label" style="justify-content:center;">Le processus</div>
+      <h2>Comment ça marche ?</h2>
+      <p>4 étapes simples pour avoir votre site web professionnel en main.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item fade-up">
+        <div class="step-number">01</div>
+        <h3>Remplissez le questionnaire</h3>
+        <p>Un formulaire complet pour comprendre votre activité, vos objectifs et le design souhaité. 5 à 10 minutes suffisent.</p>
+      </div>
+      <div class="step-item active fade-up delay-1">
+        <div class="step-number">02</div>
+        <h3>Je crée votre site</h3>
+        <p>Je conçois votre site sur mesure : design, textes adaptés à votre activité, SEO, code optimisé. Délai : 24 à 48h.</p>
+      </div>
+      <div class="step-item fade-up delay-2">
+        <div class="step-number">03</div>
+        <h3>Validation + devis</h3>
+        <p>Vous recevez une proposition complète et un devis précis. Vous validez, suggérez des ajustements — aucun engagement.</p>
+      </div>
+      <div class="step-item fade-up delay-3">
+        <div class="step-number">04</div>
+        <h3>Paiement → livraison</h3>
+        <p>Après paiement, je vous envoie le dossier ZIP complet. Vous pouvez mettre votre site en ligne dès réception.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ L'OFFRE — 3 PALIERS ══════════════════════════ -->
+<section id="offre">
+  <div class="container">
+    <div class="section-header fade-up" style="margin:0 auto 56px;text-align:center;">
+      <div class="section-label" style="justify-content:center;">Les offres</div>
+      <h2>Un prix clair. Aucune surprise.</h2>
+      <p>Choisissez l'offre adaptée à votre projet. Paiement uniquement après validation.</p>
+      <div class="spots-tracker fade-up">
+        <div class="spots-label">Places restantes cette semaine : <span id="spotsCount">3</span> / 5</div>
+        <div class="spots-bar-wrap">
+          <div class="spots-bar-fill" id="spotsBar" style="width:60%;"></div>
+        </div>
+        <div class="spots-warning">⚡ Places limitées !</div>
+      </div>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-header">
+          <div class="pricing-promo-badge">🔥 PROMO LANCEMENT</div>
+          <div class="pricing-tier">Starter</div>
+          <span class="pricing-price-original">199 €</span>
+          <div class="pricing-price">149 <span>€</span></div>
+          <div class="pricing-desc">Idéal pour démarrer rapidement avec une page impactante.</div>
+        </div>
+        <ul class="pricing-features">
+          <li>Landing page 1 page</li>
+          <li>Design professionnel personnalisé</li>
+          <li>Textes adaptés à votre activité</li>
+          <li>SEO on-page intégré</li>
+          <li>Formulaire de contact</li>
+          <li>Responsive mobile</li>
+          <li>Guide mise en ligne PDF</li>
+          <li>Livraison 24–48h</li>
+        </ul>
+        <a href="questionnaire.html" class="btn btn-outline" style="width:100%;justify-content:center;">Choisir Starter →</a>
+      </div>
+
+      <!-- PRO (best seller) -->
+      <div class="pricing-card best-seller fade-up delay-1">
+        <div class="pricing-badge">⭐ Le plus choisi</div>
+        <div class="pricing-header">
+          <div class="pricing-promo-badge">🔥 PROMO LANCEMENT</div>
+          <div class="pricing-tier">Pro</div>
+          <span class="pricing-price-original">349 €</span>
+          <div class="pricing-price">249 <span>€</span></div>
+          <div class="pricing-desc">Site complet multi-pages pour convaincre et convertir.</div>
+        </div>
+        <ul class="pricing-features">
+          <li>3 à 5 pages sur mesure</li>
+          <li>Design professionnel personnalisé</li>
+          <li>Textes adaptés à votre activité</li>
+          <li>SEO intégré (sitemap, robots, schema.org)</li>
+          <li>Formulaire de contact fonctionnel</li>
+          <li>Google Analytics inclus</li>
+          <li>Guide mise en ligne + guide modification PDF</li>
+          <li>1 aller-retour de correction inclus</li>
+          <li>Livraison 24–48h</li>
+        </ul>
+        <a href="questionnaire.html" class="btn btn-primary" style="width:100%;justify-content:center;">Choisir Pro →</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pricing-card fade-up delay-2">
+        <div class="pricing-header">
+          <div class="pricing-promo-badge">🔥 PROMO LANCEMENT</div>
+          <div class="pricing-tier">Premium</div>
+          <span class="pricing-price-original">549 €</span>
+          <div class="pricing-price">399 <span>€</span></div>
+          <div class="pricing-desc">Pour les projets ambitieux avec un design poussé et une conversion optimisée.</div>
+        </div>
+        <ul class="pricing-features">
+          <li>6 pages et plus</li>
+          <li>Design premium sur mesure</li>
+          <li>Textes et structure pensés conversion</li>
+          <li>SEO avancé (schema.org, vitesse Core Web Vitals)</li>
+          <li>Formulaire de contact + section FAQ</li>
+          <li>Animations et UI avancées</li>
+          <li>Google Analytics + optimisations</li>
+          <li>2 allers-retours de correction inclus</li>
+          <li>Livraison prioritaire 24h</li>
+        </ul>
+        <a href="questionnaire.html" class="btn btn-outline" style="width:100%;justify-content:center;">Choisir Premium →</a>
+      </div>
+
+    </div>
+
+    <!-- UPSELLS -->
+    <div class="upsells-section fade-up">
+      <div class="upsells-title">Options complémentaires</div>
+      <div class="upsells-grid">
+        <div class="upsell-item">
+          <span class="upsell-icon">🚀</span>
+          <div>
+            <strong>Mise en ligne complète</strong>
+            <small>On déploie tout pour vous (GitHub + Vercel + domaine)</small>
+          </div>
+          <span class="upsell-price">100 €</span>
+        </div>
+        <div class="upsell-item">
+          <span class="upsell-icon">✏️</span>
+          <div>
+            <strong>Modification de contenu</strong>
+            <small>Textes, photos, coordonnées après livraison</small>
+          </div>
+          <span class="upsell-price">30 €/intervention</span>
+        </div>
+        <div class="upsell-item">
+          <span class="upsell-icon">➕</span>
+          <div>
+            <strong>Ajout de page</strong>
+            <small>Nouvelle page intégrée au site existant</small>
+          </div>
+          <span class="upsell-price">à partir de 80 €</span>
+        </div>
+        <div class="upsell-item">
+          <span class="upsell-icon">🔧</span>
+          <div>
+            <strong>Maintenance mensuelle</strong>
+            <small>Mises à jour de contenu, suivi technique</small>
+          </div>
+          <span class="upsell-price">29 €/mois</span>
+        </div>
+        <div class="upsell-item">
+          <span class="upsell-icon">✍️</span>
+          <div>
+            <strong>Rédaction SEO</strong>
+            <small>Textes optimisés rédigés par un expert</small>
+          </div>
+          <span class="upsell-price">+100 €</span>
+        </div>
+        <div class="upsell-item">
+          <span class="upsell-icon">📍</span>
+          <div>
+            <strong>Setup Google Business</strong>
+            <small>Fiche Google optimisée pour votre zone</small>
+          </div>
+          <span class="upsell-price">+80 €</span>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:24px;font-size:0.82rem;color:var(--muted);">
+        Mentionnez les options souhaitées dans le questionnaire. Elles seront incluses dans le devis.
+      </p>
+    </div>
+
+    <!-- Garantie -->
+    <div class="guarantee-banner fade-up">
+      <span class="guarantee-icon">🛡️</span>
+      <div>
+        <strong>Vous voyez avant de payer</strong>
+        <p>Je vous envoie la proposition complète avant tout paiement. Vous validez librement — ou vous ne payez rien. Aucun engagement.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════ POUR QUI ══════════════════════════ -->
+<section class="for-who-bg">
+  <div class="container">
+    <div class="section-header fade-up" style="margin:0 auto 64px;text-align:center;">
+      <div class="section-label" style="justify-content:center;">Pour qui ?</div>
+      <h2>Fait pour vous si…</h2>
+    </div>
+    <div class="profiles-grid">
+      <div class="profile-card fade-up">
+        <span class="profile-emoji">🔨</span>
+        <h3>Artisans</h3>
+        <p>Plombier, électricien, menuisier, maçon… Une vitrine locale pour capter de nouveaux clients dans votre zone.</p>
+      </div>
+      <div class="profile-card fade-up delay-1">
+        <span class="profile-emoji">💼</span>
+        <h3>Freelances</h3>
+        <p>Designer, développeur, consultant, rédacteur… Un portfolio ou une page de services pour vendre votre expertise.</p>
+      </div>
+      <div class="profile-card fade-up delay-2">
+        <span class="profile-emoji">🚀</span>
+        <h3>Auto-entrepreneurs</h3>
+        <p>Vous venez de vous lancer et avez besoin d'une présence professionnelle sans exploser votre budget démarrage.</p>
+      </div>
+      <div class="profile-card fade-up delay-3">
+        <span class="profile-emoji">🏪</span>
+        <h3>Petites entreprises</h3>
+        <p>PME, associations, restaurants, boutiques… Un site propre, rapide et optimisé pour votre image de marque.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FAQ ══════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header fade-up" style="margin:0 auto 64px;text-align:center;max-width:100%;">
+      <div class="section-label" style="justify-content:center;">Questions fréquentes</div>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          Qu'est-ce que je reçois exactement ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Vous recevez un dossier ZIP contenant tous les fichiers de votre site : les pages HTML, la feuille de styles CSS, le fichier sitemap.xml, le fichier robots.txt, ainsi que deux guides PDF détaillés — l'un pour mettre le site en ligne, l'autre pour le modifier vous-même. Vous possédez l'intégralité du code source.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Comment mettre le site en ligne ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Le guide PDF inclus vous accompagne étape par étape. La méthode recommandée est gratuite : créer un compte GitHub (gratuit), déposer les fichiers, puis déployer via Vercel (gratuit). Votre site est en ligne en moins de 15 minutes. Si vous avez un nom de domaine, le guide vous explique comment le connecter.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Puis-je modifier le site moi-même après livraison ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Absolument. Le guide de modification PDF vous explique comment changer vos textes, vos images, vos couleurs, ajouter ou supprimer des sections. Le code est commenté et lisible, même sans formation technique. Et vous pouvez aussi me contacter pour une mise à jour payante si vous préférez déléguer.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Que se passe-t-il après le paiement ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Après réception du paiement, je vous envoie le dossier ZIP par email dans les plus brefs délais. Le dossier contient tous les fichiers finaux validés lors de l'étape de proposition. Vous n'avez plus qu'à suivre le guide pour publier votre site.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Proposez-vous l'hébergement ou la maintenance ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            L'hébergement n'est pas inclus mais le guide vous explique comment l'obtenir gratuitement via GitHub + Vercel. Pour la maintenance, une option à 29 €/mois est disponible : elle couvre les mises à jour de contenu et le suivi technique. Mentionnez-la dans le questionnaire.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Combien de temps pour recevoir mon site ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            La livraison d'une proposition se fait sous 24 à 48h après réception de votre questionnaire complet. Si des informations manquent ou si des allers-retours sont nécessaires, le délai peut s'allonger légèrement. Un aller-retour de correction est inclus (deux avec l'offre Premium) avant la livraison finale.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Quels sont les délais de disponibilité ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Pour garantir la qualité de chaque livrable, je prends maximum 5 projets par semaine. Si ma semaine est complète, votre questionnaire sera traité en début de semaine suivante. Vous serez informé rapidement par email.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Puis-je ajouter des options après avoir rempli le questionnaire ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Oui, parfaitement. Les options (maintenance, rédaction SEO, setup Google Business, livraison prioritaire 24h) peuvent être ajoutées à tout moment avant la validation finale. Mentionnez vos besoins dans le questionnaire ou répondez directement à l'email de proposition.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Est-ce que vous pouvez mettre le site en ligne pour moi ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Oui, c'est l'option Mise en ligne complète (100 €). Je m'occupe de tout : création du dépôt GitHub, déploiement Vercel, connexion de votre nom de domaine. Votre site est en ligne sans que vous ayez à toucher une ligne de code.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Que se passe-t-il si je veux modifier mon site après livraison ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Toute modification après validation finale est facturée séparément : 30 € par intervention de contenu (textes, photos, coordonnées), à partir de 80 € pour l'ajout d'une page complète. Vous pouvez aussi modifier vous-même grâce au guide PDF inclus.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CTA FINAL ══════════════════════════ -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="section-label fade-up" style="justify-content:center;">Démarrer</div>
+    <h2 class="fade-up delay-1">Prêt à avoir votre site ?</h2>
+    <p class="fade-up delay-2">
+      Remplissez le questionnaire en 5 minutes.<br>
+      Recevez votre site professionnel sous 24–48h.
+    </p>
+    <a href="questionnaire.html" class="btn btn-primary btn-lg fade-up delay-3">
+      Démarrer maintenant →
+    </a>
+    <div class="cta-features fade-up delay-4">
+      <div class="cta-feature"><div class="cta-feature-dot"></div> Aucun engagement</div>
+      <div class="cta-feature"><div class="cta-feature-dot"></div> Paiement après validation</div>
+      <div class="cta-feature"><div class="cta-feature-dot"></div> Livraison sous 24–48h</div>
+      <div class="cta-feature"><div class="cta-feature-dot"></div> Propriétaire à 100 %</div>
+      <div class="cta-feature"><div class="cta-feature-dot"></div> 5 projets max / semaine</div>
+    </div>
+    <div class="urgency-note fade-up delay-5">
+      ⚡ Places limitées cette semaine — <strong style="color:var(--accent);">3 disponibles</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Site<span>Craft</span></div>
+      <ul class="footer-links">
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+        <li><a href="mailto:contact@sitecraft.fr">contact@sitecraft.fr</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 SiteCraft. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ─── CURSOR ─── */
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top  = mouseY + 'px';
+});
+function animateCursor() {
+  curX += (mouseX - curX) * 0.12;
+  curY += (mouseY - curY) * 0.12;
+  cursor.style.left = curX + 'px';
+  cursor.style.top  = curY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a, button, .faq-question, .btn, .receive-card, .profile-card, .pricing-card, .testimonial-card, .portfolio-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+/* ─── NAVBAR SCROLL ─── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ─── MOBILE MENU ─── */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => mobileNav.classList.remove('open'));
+function closeMobile() { mobileNav.classList.remove('open'); }
+
+/* ─── INTERSECTION OBSERVER (fade-up) ─── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* ─── COUNTERS ─── */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  let current = 0;
+  const increment = target / 60;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current) + suffix;
+  }, 16);
+}
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
+
+/* ─── FAQ ACCORDION ─── */
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* ─── THEME TOGGLE ─── */
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+});
+
+/* ─── SPOTS BAR ANIMATE ─── */
+const spotsBar = document.getElementById('spotsBar');
+const spotsObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      spotsBar.style.width = '60%';
+      spotsObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+if (spotsBar) { spotsBar.style.width = '0'; spotsObs.observe(spotsBar); }
+</script>
+</body>
+</html>

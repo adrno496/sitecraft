@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merci ! — SiteCraft</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">☀️</button>
+  </div>
+</nav>
+
+<main class="merci-page">
+  <div class="merci-content fade-up">
+    <div class="merci-icon">✅</div>
+    <div class="section-label" style="justify-content:center;">Questionnaire reçu</div>
+    <h1>Merci pour votre confiance !</h1>
+    <p>
+      J'ai bien reçu votre questionnaire et je me mets au travail immédiatement.
+      Vous recevrez une proposition complète par email dans les <strong style="color:var(--text);">24 à 48 heures</strong>.
+    </p>
+
+    <div class="merci-steps">
+      <div class="merci-step">
+        <div class="merci-step-num">1</div>
+        <p>
+          <strong>Analyse de votre projet</strong>
+          <small>Je lis attentivement vos réponses et prépare un brief créatif adapté à votre activité.</small>
+        </p>
+      </div>
+      <div class="merci-step">
+        <div class="merci-step-num">2</div>
+        <p>
+          <strong>Création de votre site</strong>
+          <small>Design, textes, SEO, code — tout est fait sur mesure pour vous. Délai : 24 à 48h.</small>
+        </p>
+      </div>
+      <div class="merci-step">
+        <div class="merci-step-num">3</div>
+        <p>
+          <strong>Envoi de la proposition + devis</strong>
+          <small>Vous recevez un aperçu du site et un devis clair. Aucun engagement, vous validez librement.</small>
+        </p>
+      </div>
+      <div class="merci-step">
+        <div class="merci-step-num">4</div>
+        <p>
+          <strong>Paiement → Livraison du dossier ZIP</strong>
+          <small>Après paiement, vous recevez immédiatement tous les fichiers prêts à mettre en ligne.</small>
+        </p>
+      </div>
+    </div>
+
+    <p style="font-size:0.9rem;color:var(--muted);">
+      Une question ? Écrivez-moi directement :<br>
+      <a href="mailto:contact@sitecraft.fr" style="color:var(--accent);font-weight:600;">contact@sitecraft.fr</a>
+    </p>
+
+    <a href="index.html" class="btn btn-outline" style="margin-top:32px;">← Retour à l'accueil</a>
+  </div>
+</main>
+
+<script>
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top  = mouseY + 'px';
+});
+function animateCursor() {
+  curX += (mouseX - curX) * 0.12;
+  curY += (mouseY - curY) * 0.12;
+  cursor.style.left = curX + 'px';
+  cursor.style.top  = curY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('.fade-up').forEach(el => {
+  el.style.opacity = '0'; el.style.transform = 'translateY(30px)';
+  setTimeout(() => {
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+  }, 100);
+});
+const themeToggle=document.getElementById('themeToggle');const html=document.documentElement;const savedTheme=localStorage.getItem('theme')||'dark';html.setAttribute('data-theme',savedTheme);if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
+</script>
+</body>
+</html>

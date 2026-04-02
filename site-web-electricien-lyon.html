@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Création site web électricien Lyon — Site professionnel dès 149€</title>
-  <meta name="description" content="Électricien à Lyon ? Obtenez un site web professionnel livré en 24–48h dès 149€. SEO local, sans abonnement, fichiers HTML inclus." />
+  <title>Création site web électricien — Site professionnel dès 149€ · SiteCraft</title>
+  <meta name="description" content="Électricien en France ? Obtenez un site web professionnel livré en 24–48h dès 149€. SEO local dans votre ville, sans abonnement, fichiers HTML inclus." />
   <link rel="canonical" href="https://sitecraft.fr/site-web-electricien-lyon.html" />
   <meta name="robots" content="index, follow" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── Cursor : diamant → carré sur hover ── */
-    .cursor {
-      width: 26px;
-      height: 26px;
-      border: 2px solid var(--accent);
-      border-radius: 4px;
-      background: var(--accent-dim);
-      transform: translate(-50%, -50%) rotate(45deg);
-      transition: width .3s cubic-bezier(.16,1,.3,1),
-                  height .3s cubic-bezier(.16,1,.3,1),
-                  transform .3s cubic-bezier(.16,1,.3,1),
-                  box-shadow .3s;
-    }
-    .cursor.hover {
-      width: 46px;
-      height: 46px;
-      transform: translate(-50%, -50%) rotate(0deg);
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-    .cursor-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-    }
+    /* ── Cursor ── */
+    .cursor { width: 26px; height: 26px; border: 2px solid var(--accent); border-radius: 4px; background: var(--accent-dim); transform: translate(-50%, -50%) rotate(45deg); transition: width .3s cubic-bezier(.16,1,.3,1), height .3s cubic-bezier(.16,1,.3,1), transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s; }
+    .cursor.hover { width: 46px; height: 46px; transform: translate(-50%, -50%) rotate(0deg); box-shadow: 0 0 20px var(--accent-glow); }
+    .cursor-dot { width: 6px; height: 6px; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
 
     /* ── Page layout ── */
     .seo-hero { padding: 140px 0 60px; max-width: 760px; }
@@ -48,7 +28,7 @@
     .step-box { background: var(--surface2); border: 1px solid rgba(200,245,66,.1); border-radius: 12px; padding: 20px 18px; }
     .step-box .num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--accent); line-height: 1; margin-bottom: 8px; }
     .step-box strong { display: block; font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 4px; }
-    .step-box p { margin: 0; font-size: .875rem; }
+    .step-box p { margin: 0; font-size: .875rem; color: var(--muted); }
     .pricing-strip { background: var(--surface2); border: 1px solid rgba(200,245,66,.2); border-radius: 12px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 8px; }
     .pricing-strip .price-label { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--accent); }
     .pricing-strip p { color: var(--muted); font-size: .9rem; margin: 0; }
@@ -61,18 +41,22 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-dot" id="cursorDot"></div>
 
-<nav class="navbar scrolled">
+<nav class="navbar scrolled" id="navbar">
   <div class="container">
     <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
-    <ul class="navbar-links">
+    <ul class="navbar-links" id="navbarLinks">
       <li><a href="services.html">Services</a></li>
       <li><a href="a-propos.html">À propos</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li class="nav-mobile-cta"><a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Demander mon site</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
       <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">☀️</button>
       <a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Demander mon site</a>
     </div>
+    <button class="navbar-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -81,25 +65,25 @@
 
     <!-- H1 -->
     <div class="seo-hero fade-up">
-      <p class="section-label">Lyon · Électricité</p>
-      <h1>Création de site web pour électricien à Lyon</h1>
+      <p class="section-label">France · Électricité</p>
+      <h1>Création de site web pour électricien</h1>
       <p class="intro">
-        Vous êtes électricien à Lyon et vous cherchez à décrocher plus de chantiers en ligne ? SiteCraft crée votre site web électricien Lyon en 24 à 48h, dès 149 €, sans abonnement, avec les fichiers HTML qui vous appartiennent.
+        Vous êtes électricien et vous cherchez à décrocher plus de chantiers en ligne ? SiteCraft crée votre site web électricien en 24 à 48h, dès 149 €, sans abonnement, avec les fichiers HTML qui vous appartiennent. Partout en France, SEO optimisé pour votre ville.
       </p>
       <a href="questionnaire.html" class="btn btn-primary btn-lg">Demander mon site →</a>
     </div>
 
-    <!-- Pourquoi un électricien à Lyon a besoin d'un site web -->
+    <!-- Pourquoi un électricien a besoin d'un site web -->
     <div class="seo-section fade-up" data-delay="100">
-      <h2>Pourquoi un électricien à Lyon a besoin d'un site web</h2>
+      <h2>Pourquoi un électricien a besoin d'un site web</h2>
       <p>
-        À Lyon, les particuliers et les professionnels cherchent un électricien sur Google avant tout. "Électricien Lyon", "installation tableau électrique Lyon", "mise aux normes électricité Lyon" — des centaines de recherches chaque mois que vous pouvez capter avec un bon site internet électricien.
+        Les particuliers et les professionnels cherchent un électricien sur Google avant tout. "Électricien [votre ville]", "installation tableau électrique [votre ville]", "mise aux normes électricité partout en France" — des centaines de recherches chaque mois que vous pouvez capter avec un bon site internet.
       </p>
       <p>
-        Un site web vous donne de la crédibilité, vous distingue des annuaires généralistes, et vous permet d'afficher vos certifications, vos zones d'intervention à Lyon et ses environs, et vos avis clients. Un artisan Lyon avec un site internet bien référencé travaille moins à chercher des clients et plus sur ses chantiers.
+        Un site web vous donne de la crédibilité, vous distingue des annuaires généralistes, et vous permet d'afficher vos certifications, vos zones d'intervention dans votre ville et ses environs, et vos avis clients. Un artisan avec un site internet bien référencé travaille moins à chercher des clients et plus sur ses chantiers.
       </p>
       <p>
-        Créer un site internet électricien n'a pas à prendre des semaines. Avec SiteCraft, vous recevez un site pro livré en 24–48h, clé en main.
+        Créer un site internet électricien n'a pas à prendre des semaines. Avec SiteCraft, vous recevez un site pro livré en 24–48h, clé en main, avec le SEO local optimisé pour votre commune spécifique.
       </p>
     </div>
 
@@ -107,9 +91,9 @@
     <div class="seo-section fade-up" data-delay="150">
       <h2>Ce que comprend votre site</h2>
       <ul class="includes-list">
-        <li>Page d'accueil avec vos services et zone d'intervention à Lyon</li>
+        <li>Page d'accueil avec vos services et votre zone d'intervention</li>
         <li>Formulaire de contact et numéro de téléphone cliquable</li>
-        <li>SEO local optimisé : "électricien Lyon", "dépannage électricité Lyon"…</li>
+        <li>SEO local optimisé pour votre ville et communes proches : "électricien [votre ville]", "dépannage électricité [votre ville]"…</li>
         <li>Design responsive, rapide sur mobile</li>
         <li>Fichiers HTML/CSS — vous êtes 100 % propriétaire</li>
         <li>Guide PDF de mise en ligne en 15 min</li>
@@ -128,7 +112,7 @@
         <div class="step-box">
           <div class="num">02</div>
           <strong>Création</strong>
-          <p>Je crée votre site web électricien Lyon sur mesure — design, textes, SEO local optimisé.</p>
+          <p>Je crée votre site web électricien sur mesure — design, textes, SEO local optimisé pour votre commune.</p>
         </div>
         <div class="step-box">
           <div class="num">03</div>
@@ -187,6 +171,10 @@ const savedTheme=localStorage.getItem('theme')||'dark';
 html.setAttribute('data-theme',savedTheme);
 if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
 document.querySelectorAll('.fade-up').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';setTimeout(()=>{el.style.transition='opacity 0.7s ease, transform 0.7s ease';el.style.opacity='1';el.style.transform='translateY(0)';},(parseInt(el.dataset.delay)||0));});
+/* ─── HAMBURGER ─── */
+const hamburger=document.getElementById('hamburger');
+const navbarLinks=document.getElementById('navbarLinks');
+if(hamburger&&navbarLinks){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');navbarLinks.classList.toggle('open');});}
 </script>
 </body>
 </html>

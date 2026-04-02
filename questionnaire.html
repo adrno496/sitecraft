@@ -18,7 +18,10 @@
 <nav class="navbar scrolled" id="navbar">
   <div class="container">
     <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
-    <div style="display:flex;align-items:center;gap:12px;"><button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">☀️</button><a href="index.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.85rem;">← Retour au site</a></div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">☀️</button>
+      <a href="index.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.85rem;">← Retour au site</a>
+    </div>
   </div>
 </nav>
 
@@ -29,486 +32,314 @@
     <div class="form-hero fade-up">
       <div class="section-label" style="justify-content:center;">Questionnaire</div>
       <h1>Parlez-moi de votre projet</h1>
-      <p>Remplissez ce formulaire pour que je puisse créer votre site sur mesure. Plus vous êtes précis, plus le résultat sera adapté à votre activité.</p>
+      <p>Répondez étape par étape — 5 à 10 minutes. Plus vous êtes précis, plus votre site sera unique.</p>
+    </div>
+
+    <!-- BARRE DE PROGRESSION -->
+    <div class="step-progress">
+      <div class="step-progress-bar-wrap">
+        <div class="step-progress-fill" id="progressFill" style="width:16.6%;"></div>
+      </div>
+      <div class="step-progress-label" id="progressLabel">Étape 1 sur 6</div>
     </div>
 
     <div class="form-container">
-      <form id="questionnaireForm" action="merci.html" method="GET" enctype="multipart/form-data">
+      <form id="questionnaireForm" action="merci.html" method="GET">
 
-        <!-- ───────────── OFFRE & OPTIONS ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">★</div>
-            <h2>Choisissez votre offre</h2>
+        <!-- ══════════════ ÉTAPE 1 — VOTRE ACTIVITÉ ══════════════ -->
+        <div class="form-step active" data-step="1">
+          <div class="form-section">
+            <div class="form-section-title">
+              <div class="form-section-num">1</div>
+              <h2>Votre activité</h2>
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="metier">Quel est votre métier / activité ? <span class="req">*</span></label>
+                <input type="text" id="metier" name="metier" placeholder="Ex : plombier, coach, photographe, menuisier…" required />
+              </div>
+              <div class="form-group">
+                <label for="nom_entreprise">Nom de votre entreprise ou prénom professionnel <span class="req">*</span></label>
+                <input type="text" id="nom_entreprise" name="nom_entreprise" placeholder="Ex : Plomberie Martin, Sophie Coach" required />
+              </div>
+              <div class="form-group">
+                <label for="ville_intervention">Ville et département d'intervention principale <span class="req">*</span></label>
+                <input type="text" id="ville_intervention" name="ville_intervention" placeholder="Ex : Lyon (69), Paris (75), Nantes (44)" required />
+              </div>
+              <div class="form-group">
+                <label for="zone_couverte">Zone couverte <span class="optional">(optionnel)</span></label>
+                <input type="text" id="zone_couverte" name="zone_couverte" placeholder="Ex : rayon 30 km autour de Lyon, ou communes limitrophes" />
+              </div>
+            </div>
           </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label class="form-label">Offre souhaitée *</label>
-              <div class="offer-selector">
-                <label class="offer-option radio-option">
-                  <input type="radio" name="offre" value="starter" required />
-                  <span class="offer-option-label">
-                    <strong>Starter — 149 €</strong>
-                    <small>1 page · livraison 24–48h</small>
-                  </span>
-                </label>
-                <label class="offer-option radio-option">
-                  <input type="radio" name="offre" value="pro" />
-                  <span class="offer-option-label">
-                    <strong>Pro — 249 €</strong> ⭐ Recommandé
-                    <small>3–5 pages · SEO · formulaire</small>
-                  </span>
-                </label>
-                <label class="offer-option radio-option">
-                  <input type="radio" name="offre" value="premium" />
-                  <span class="offer-option-label">
-                    <strong>Premium — 399 €</strong>
-                    <small>6 pages + · design avancé · conversion</small>
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <div class="form-group full">
-              <label class="form-label">Options souhaitées <span class="optional">(facultatif)</span></label>
-              <div class="options-checkboxes">
-                <label class="checkbox-item checkbox-option">
-                  <input type="checkbox" name="option_mise_en_ligne" value="1" />
-                  <span>🚀 Mise en ligne complète (100 €)</span>
-                </label>
-                <label class="checkbox-item checkbox-option">
-                  <input type="checkbox" name="option_maintenance" value="1" />
-                  <span>🔧 Maintenance mensuelle (+29 €/mois)</span>
-                </label>
-                <label class="checkbox-item checkbox-option">
-                  <input type="checkbox" name="option_redaction" value="1" />
-                  <span>✍️ Rédaction SEO (+100 €)</span>
-                </label>
-                <label class="checkbox-item checkbox-option">
-                  <input type="checkbox" name="option_livraison24h" value="1" />
-                  <span>⚡ Livraison prioritaire 24h (+50 €)</span>
-                </label>
-                <label class="checkbox-item checkbox-option">
-                  <input type="checkbox" name="option_google_business" value="1" />
-                  <span>📍 Setup Google Business (+80 €)</span>
-                </label>
-              </div>
-            </div>
+          <div class="step-nav">
+            <span></span>
+            <button type="button" class="btn btn-primary" onclick="goNext()">Suivant →</button>
           </div>
         </div>
 
-        <!-- ───────────── SECTION 1 — IDENTITÉ ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">1</div>
-            <h2>Identité du projet</h2>
+        <!-- ══════════════ ÉTAPE 2 — VOTRE OFFRE ══════════════ -->
+        <div class="form-step" data-step="2">
+          <div class="form-section">
+            <div class="form-section-title">
+              <div class="form-section-num">2</div>
+              <h2>Votre offre</h2>
+            </div>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="services_liste">Listez vos services principaux <span class="req">*</span></label>
+                <textarea id="services_liste" name="services_liste" rows="5" placeholder="Écrivez un service par ligne. Ex :&#10;- Dépannage plomberie urgence&#10;- Installation salle de bain&#10;- Remplacement chauffe-eau" required></textarea>
+              </div>
+              <div class="form-group full">
+                <label for="argument_principal">Votre argument principal — pourquoi vous choisir ? <span class="req">*</span></label>
+                <input type="text" id="argument_principal" name="argument_principal" placeholder="Ex : Artisan certifié, disponible 7j/7, devis gratuit sous 2h" required />
+              </div>
+              <div class="form-group">
+                <label for="prix_depart">Votre prix de départ ou fourchette tarifaire <span class="optional">(optionnel)</span></label>
+                <input type="text" id="prix_depart" name="prix_depart" placeholder="Ex : à partir de 80 €/h, forfait dès 250 €" />
+              </div>
+              <div class="form-group">
+                <label>Proposez-vous des urgences / interventions rapides ?</label>
+                <div class="radio-group horizontal">
+                  <label class="radio-option">
+                    <input type="radio" name="urgences" value="oui" />
+                    Oui
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="urgences" value="non" />
+                    Non
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="nom_entreprise">Nom de l'entreprise <span class="req">*</span></label>
-              <input type="text" id="nom_entreprise" name="nom_entreprise" placeholder="Ex : Plomberie Martin" required />
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" onclick="goPrev()">← Précédent</button>
+            <button type="button" class="btn btn-primary" onclick="goNext()">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- ══════════════ ÉTAPE 3 — VOS CLIENTS ══════════════ -->
+        <div class="form-step" data-step="3">
+          <div class="form-section">
+            <div class="form-section-title">
+              <div class="form-section-num">3</div>
+              <h2>Vos clients</h2>
             </div>
-            <div class="form-group">
-              <label for="slogan">Slogan / phrase d'accroche <span class="optional">(optionnel)</span></label>
-              <input type="text" id="slogan" name="slogan" placeholder="Ex : L'eau, on en prend soin" />
+            <div class="form-grid">
+              <div class="form-group full">
+                <label>Qui sont vos clients ? <span class="req">*</span></label>
+                <div class="radio-group horizontal">
+                  <label class="radio-option">
+                    <input type="radio" name="type_clients" value="particuliers" required />
+                    Particuliers
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="type_clients" value="professionnels" />
+                    Professionnels
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="type_clients" value="les_deux" />
+                    Les deux
+                  </label>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label for="client_ideal">Décrivez votre client idéal en quelques mots <span class="optional">(optionnel)</span></label>
+                <textarea id="client_ideal" name="client_ideal" rows="3" placeholder="Ex : Propriétaires de maison entre 35 et 60 ans, en Île-de-France, cherchant quelqu'un de réactif…"></textarea>
+              </div>
+              <div class="form-group full">
+                <label>Ce que vos clients cherchent en premier :</label>
+                <div class="checkbox-group horizontal">
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="priorites" value="reactivite" />
+                    Réactivité
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="priorites" value="prix" />
+                    Prix
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="priorites" value="qualite" />
+                    Qualité
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="priorites" value="references" />
+                    Références
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="priorites" value="proximite" />
+                    Proximité
+                  </label>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="activite">Activité principale <span class="req">*</span></label>
-              <input type="text" id="activite" name="activite" placeholder="Ex : Plombier, designer freelance…" required />
+          </div>
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" onclick="goPrev()">← Précédent</button>
+            <button type="button" class="btn btn-primary" onclick="goNext()">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- ══════════════ ÉTAPE 4 — IDENTITÉ VISUELLE ══════════════ -->
+        <div class="form-step" data-step="4">
+          <div class="form-section">
+            <div class="form-section-title">
+              <div class="form-section-num">4</div>
+              <h2>Identité visuelle</h2>
             </div>
-            <div class="form-group">
-              <label for="ville">Ville / zone géographique ciblée <span class="req">*</span></label>
-              <input type="text" id="ville" name="ville" placeholder="Ex : Lyon et région Auvergne-Rhône-Alpes" required />
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="ambiance">Ambiance souhaitée <span class="req">*</span></label>
+                <select id="ambiance" name="ambiance" required>
+                  <option value="" disabled selected>Choisissez une ambiance</option>
+                  <option value="professionnel_sobre">Professionnel sobre</option>
+                  <option value="moderne_dynamique">Moderne et dynamique</option>
+                  <option value="artisanal_chaleureux">Artisanal et chaleureux</option>
+                  <option value="luxe_premium">Luxe et premium</option>
+                  <option value="neutre">Neutre / je fais confiance</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="couleurs">Couleurs préférées ou à éviter <span class="optional">(optionnel)</span></label>
+                <input type="text" id="couleurs" name="couleurs" placeholder="Ex : bleu marine + blanc. Éviter : rouge, jaune vif" />
+              </div>
+              <div class="form-group">
+                <label for="logo_description">Avez-vous un logo ? Si oui, décrivez-le <span class="optional">(optionnel)</span></label>
+                <input type="text" id="logo_description" name="logo_description" placeholder="Ex : logo texte bleu et doré, style épuré. Ou : non, pas de logo" />
+              </div>
+              <div class="form-group full">
+                <label for="sites_inspiration">Sites web que vous aimez — URL ou descriptions <span class="optional">(optionnel)</span></label>
+                <textarea id="sites_inspiration" name="sites_inspiration" rows="3" placeholder="Ex : j'aime le style de tel site, sobre avec des tons neutres et une belle mise en page…"></textarea>
+              </div>
             </div>
-            <div class="form-group full">
-              <label>Vous travaillez…</label>
-              <div class="radio-group horizontal">
-                <label class="radio-option">
-                  <input type="radio" name="zone_travail" value="local" required />
-                  Principalement en local
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="zone_travail" value="en_ligne" />
-                  Principalement en ligne
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="zone_travail" value="les_deux" />
-                  Les deux
+          </div>
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" onclick="goPrev()">← Précédent</button>
+            <button type="button" class="btn btn-primary" onclick="goNext()">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- ══════════════ ÉTAPE 5 — CONTENU ET PAGES ══════════════ -->
+        <div class="form-step" data-step="5">
+          <div class="form-section">
+            <div class="form-section-title">
+              <div class="form-section-num">5</div>
+              <h2>Contenu et pages</h2>
+            </div>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label>Pages souhaitées :</label>
+                <div class="checkbox-group horizontal">
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="accueil" checked />
+                    Accueil
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="services" />
+                    Services
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="apropos" />
+                    À propos
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="galerie" />
+                    Galerie
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="temoignages" />
+                    Témoignages
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="blog" />
+                    Blog
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="contact" checked />
+                    Contact
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="pages" value="autre" />
+                    Autre
+                  </label>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label for="photos_description">Avez-vous des photos de vos réalisations ? <span class="optional">(optionnel)</span></label>
+                <textarea id="photos_description" name="photos_description" rows="3" placeholder="Décrivez vos photos ou indiquez si vous en avez. Ex : j'ai des photos de 3 chantiers récents, qualité smartphone."></textarea>
+              </div>
+              <div class="form-group full">
+                <label for="texte_presentation">Texte de présentation existant <span class="optional">(optionnel)</span></label>
+                <textarea id="texte_presentation" name="texte_presentation" rows="4" placeholder="Collez ici un texte que vous avez déjà rédigé (description de votre activité, à propos…)"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" onclick="goPrev()">← Précédent</button>
+            <button type="button" class="btn btn-primary" onclick="goNext()">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- ══════════════ ÉTAPE 6 — FORMULE ET CONTACT ══════════════ -->
+        <div class="form-step" data-step="6">
+          <div class="form-section">
+            <div class="form-section-title">
+              <div class="form-section-num">6</div>
+              <h2>Formule et contact</h2>
+            </div>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label>Formule choisie <span class="req">*</span></label>
+                <div class="offer-selector">
+                  <label class="offer-option radio-option">
+                    <input type="radio" name="offre" value="starter" required />
+                    <span class="offer-option-label">
+                      <strong>Starter — 149 €</strong>
+                      <small>1 page · livraison 24–48h · 1 révision</small>
+                    </span>
+                  </label>
+                  <label class="offer-option radio-option">
+                    <input type="radio" name="offre" value="pro" />
+                    <span class="offer-option-label">
+                      <strong>Pro — 249 €</strong> ⭐ Recommandé
+                      <small>3–5 pages · SEO avancé · Google Analytics · 2 révisions</small>
+                    </span>
+                  </label>
+                  <label class="offer-option radio-option">
+                    <input type="radio" name="offre" value="premium" />
+                    <span class="offer-option-label">
+                      <strong>Premium — 399 €</strong>
+                      <small>Jusqu'à 10 pages · mise en ligne incluse · 30j support · 3 révisions</small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Votre adresse email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required />
+              </div>
+              <div class="form-group">
+                <label for="telephone">Votre numéro de téléphone <span class="optional">(optionnel)</span></label>
+                <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" />
+              </div>
+              <div class="form-group full">
+                <label for="infos_complementaires">Informations complémentaires ou questions <span class="optional">(optionnel)</span></label>
+                <textarea id="infos_complementaires" name="infos_complementaires" rows="4" placeholder="Précisions, contraintes particulières, délai souhaité, questions…"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="checkbox-option" style="background:var(--bg);">
+                  <input type="checkbox" name="rgpd" value="oui" required />
+                  J'accepte que mes données soient utilisées pour la création de mon site, conformément à la <a href="politique-confidentialite.html" style="color:var(--accent);">politique de confidentialité</a>.
                 </label>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- ───────────── SECTION 2 — OBJECTIF ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">2</div>
-            <h2>Objectif du site</h2>
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" onclick="goPrev()">← Précédent</button>
+            <button type="submit" class="btn btn-primary btn-lg">Envoyer ma demande →</button>
           </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label>Quels sont les objectifs de votre site ? <span class="req">*</span></label>
-              <div class="checkbox-group">
-                <label class="checkbox-option">
-                  <input type="checkbox" name="objectifs" value="leads" />
-                  Générer des leads (appels, emails, devis)
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="objectifs" value="services" />
-                  Vendre des services
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="objectifs" value="produits" />
-                  Vendre des produits
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="objectifs" value="rdv" />
-                  Prendre des rendez-vous en ligne
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="objectifs" value="vitrine" />
-                  Présenter l'entreprise / vitrine
-                </label>
-              </div>
-            </div>
-            <div class="form-group full">
-              <label for="objectif_principal">Objectif principal (le plus important) <span class="req">*</span></label>
-              <select id="objectif_principal" name="objectif_principal" required>
-                <option value="" disabled selected>Choisissez l'objectif n°1</option>
-                <option value="leads">Générer des leads</option>
-                <option value="services">Vendre des services</option>
-                <option value="produits">Vendre des produits</option>
-                <option value="rdv">Prendre des rendez-vous</option>
-                <option value="vitrine">Présenter l'entreprise</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- ───────────── SECTION 3 — CLIENT CIBLE ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">3</div>
-            <h2>Client cible</h2>
-          </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label for="client_ideal">Profil de votre client idéal <span class="req">*</span></label>
-              <textarea id="client_ideal" name="client_ideal" rows="3" placeholder="Ex : Propriétaires de maison entre 35 et 55 ans, en Île-de-France, avec un budget moyen…" required></textarea>
-            </div>
-            <div class="form-group full">
-              <label for="probleme_client">Quel problème principal cherche-t-il à résoudre ? <span class="req">*</span></label>
-              <textarea id="probleme_client" name="probleme_client" rows="3" placeholder="Ex : Il a une fuite d'eau urgente et ne sait pas à qui faire confiance…" required></textarea>
-            </div>
-            <div class="form-group full">
-              <label for="resultat_attendu">Quel résultat attendu après avoir fait appel à vous ? <span class="optional">(optionnel)</span></label>
-              <textarea id="resultat_attendu" name="resultat_attendu" rows="2" placeholder="Ex : Une plomberie réparée en moins de 24h, sans mauvaise surprise sur la facture…"></textarea>
-            </div>
-            <div class="form-group full">
-              <label for="zone_cible">Zone géographique cible (si différente de la précédente) <span class="optional">(optionnel)</span></label>
-              <input type="text" id="zone_cible" name="zone_cible" placeholder="Ex : Paris intra-muros, Banlieue Ouest…" />
-            </div>
-          </div>
-        </div>
-
-        <!-- ───────────── SECTION 4 — OFFRES & SERVICES ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">4</div>
-            <h2>Offres &amp; services</h2>
-          </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label for="services">Liste de vos services / prestations <span class="req">*</span></label>
-              <textarea id="services" name="services" rows="4" placeholder="Ex :&#10;- Dépannage plomberie urgence&#10;- Installation salle de bain&#10;- Remplacement chauffe-eau&#10;- Détection de fuites" required></textarea>
-            </div>
-            <div class="form-group full">
-              <label for="offre_principale">Votre offre principale / la plus rentable <span class="req">*</span></label>
-              <input type="text" id="offre_principale" name="offre_principale" placeholder="Ex : Installation de salle de bain complète" required />
-            </div>
-            <div class="form-group">
-              <label>Afficher les prix sur le site ?</label>
-              <div class="radio-group">
-                <label class="radio-option">
-                  <input type="radio" name="prix_affiche" value="oui" />
-                  Oui, j'affiche mes tarifs
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="prix_affiche" value="non" />
-                  Non, devis sur demande
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="prix_affiche" value="partiel" />
-                  Partiellement (à partir de…)
-                </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="delais">Délais de livraison / d'intervention habituels <span class="optional">(optionnel)</span></label>
-              <input type="text" id="delais" name="delais" placeholder="Ex : Intervention sous 24h, devis en 48h…" />
-            </div>
-          </div>
-        </div>
-
-        <!-- ───────────── SECTION 5 — POSITIONNEMENT ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">5</div>
-            <h2>Positionnement</h2>
-          </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label for="pourquoi_choisir">Pourquoi choisir votre entreprise plutôt qu'une autre ? <span class="req">*</span></label>
-              <textarea id="pourquoi_choisir" name="pourquoi_choisir" rows="3" placeholder="Ex : Artisan certifié, 15 ans d'expérience, disponible 7j/7…" required></textarea>
-            </div>
-            <div class="form-group full">
-              <label for="points_forts">Vos points forts (3 minimum) <span class="req">*</span></label>
-              <textarea id="points_forts" name="points_forts" rows="3" placeholder="Ex :&#10;1. Réactivité : intervention sous 2h&#10;2. Transparence : devis gratuit et sans surprise&#10;3. Expertise : 15 ans de métier" required></textarea>
-            </div>
-            <div class="form-group full">
-              <label for="differences">En quoi êtes-vous différent de vos concurrents ? <span class="optional">(optionnel)</span></label>
-              <textarea id="differences" name="differences" rows="2" placeholder="Ex : Contrairement aux grosses entreprises, j'assure moi-même chaque chantier…"></textarea>
-            </div>
-            <div class="form-group full">
-              <label>Ton de communication souhaité <span class="req">*</span></label>
-              <div class="radio-group horizontal">
-                <label class="radio-option">
-                  <input type="radio" name="ton" value="pro" required />
-                  Professionnel &amp; sérieux
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="ton" value="premium" />
-                  Premium / luxe
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="ton" value="proche" />
-                  Décontracté / proche
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="ton" value="direct" />
-                  Direct / percutant
-                </label>
-              </div>
-            </div>
-            <div class="form-group full">
-              <label for="promesse">Votre promesse principale (1 phrase) <span class="optional">(optionnel)</span></label>
-              <input type="text" id="promesse" name="promesse" placeholder="Ex : Votre urgence traitée en moins de 2 heures, garanti." />
-              <span class="form-hint">La promesse qui résume ce que vous apportez à votre client.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ───────────── SECTION 6 — DESIGN ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">6</div>
-            <h2>Design</h2>
-          </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label>Style de design souhaité <span class="optional">(plusieurs choix possibles)</span></label>
-              <div class="checkbox-group horizontal">
-                <label class="checkbox-option">
-                  <input type="checkbox" name="style" value="moderne" />
-                  Moderne
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="style" value="luxe" />
-                  Luxe / premium
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="style" value="minimaliste" />
-                  Minimaliste
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="style" value="dynamique" />
-                  Dynamique / coloré
-                </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="couleurs_souhaitees">Couleurs souhaitées <span class="optional">(optionnel)</span></label>
-              <input type="text" id="couleurs_souhaitees" name="couleurs_souhaitees" placeholder="Ex : Bleu marine + blanc + touches dorées" />
-            </div>
-            <div class="form-group">
-              <label for="couleurs_eviter">Couleurs à éviter <span class="optional">(optionnel)</span></label>
-              <input type="text" id="couleurs_eviter" name="couleurs_eviter" placeholder="Ex : Pas de rouge, pas de jaune vif" />
-            </div>
-            <div class="form-group full">
-              <label>Avez-vous un logo ? <span class="req">*</span></label>
-              <div class="radio-group horizontal">
-                <label class="radio-option">
-                  <input type="radio" name="logo" value="oui_upload" id="logoOui" required />
-                  Oui, je peux l'envoyer
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="logo" value="non" />
-                  Non, je n'ai pas de logo
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="logo" value="non_souhaite" />
-                  Non, texte uniquement
-                </label>
-              </div>
-            </div>
-            <div class="form-group full" id="logoUploadGroup" style="display:none;">
-              <label for="logo_file">Uploader votre logo <span class="optional">(PNG, SVG, JPEG)</span></label>
-              <input type="file" id="logo_file" name="logo_file" accept=".png,.svg,.jpg,.jpeg,.webp" />
-              <span class="form-hint">PNG transparent ou SVG de préférence. Max 5 Mo.</span>
-            </div>
-            <div class="form-group full">
-              <label>Avez-vous des photos ou visuels pour le site ?</label>
-              <div class="radio-group horizontal">
-                <label class="radio-option">
-                  <input type="radio" name="photos" value="oui_upload" id="photoOui" />
-                  Oui, je peux en envoyer
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="photos" value="non" />
-                  Non, utiliser des photos libres de droits
-                </label>
-              </div>
-            </div>
-            <div class="form-group full" id="photosUploadGroup" style="display:none;">
-              <label for="photos_files">Uploader vos photos <span class="optional">(JPEG, PNG, WEBP)</span></label>
-              <input type="file" id="photos_files" name="photos_files" accept=".jpg,.jpeg,.png,.webp" multiple />
-              <span class="form-hint">Plusieurs fichiers acceptés. Max 20 Mo au total.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ───────────── SECTION 7 — PAGES ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">7</div>
-            <h2>Pages souhaitées</h2>
-          </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label>Quelles pages voulez-vous sur votre site ? <span class="req">*</span></label>
-              <div class="checkbox-group horizontal">
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="accueil" checked />
-                  Accueil
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="services" />
-                  Services / Prestations
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="apropos" />
-                  À propos / Mon histoire
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="contact" checked />
-                  Contact / Devis
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="blog" />
-                  Blog / Actualités
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="faq" />
-                  FAQ
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="avis" />
-                  Témoignages / Avis clients
-                </label>
-                <label class="checkbox-option">
-                  <input type="checkbox" name="pages" value="portfolio" />
-                  Portfolio / Réalisations
-                </label>
-              </div>
-            </div>
-            <div class="form-group full">
-              <label for="pages_autres">Autre(s) page(s) spécifique(s) <span class="optional">(optionnel)</span></label>
-              <input type="text" id="pages_autres" name="pages_autres" placeholder="Ex : Page tarifs, landing page promo, espace membres…" />
-            </div>
-          </div>
-        </div>
-
-        <!-- ───────────── SECTION 8 — CONTENU ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">8</div>
-            <h2>Contenu texte</h2>
-          </div>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label>Avez-vous déjà rédigé vos textes ? <span class="req">*</span></label>
-              <div class="radio-group horizontal">
-                <label class="radio-option">
-                  <input type="radio" name="textes_rediges" value="oui" id="textesOui" required />
-                  Oui, je les ai
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="textes_rediges" value="partiel" />
-                  En partie
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="textes_rediges" value="non" />
-                  Non, je délègue la rédaction
-                </label>
-              </div>
-            </div>
-            <div class="form-group full" id="textesGroup">
-              <label for="textes_contenu">Collez ici vos textes <span class="optional">(optionnel si vous en avez)</span></label>
-              <textarea id="textes_contenu" name="textes_contenu" rows="5" placeholder="Collez ici les textes que vous avez déjà rédigés. Précisez pour quelle page chaque bloc correspond."></textarea>
-            </div>
-            <div class="form-group full" id="autoGenGroup" style="display:none;">
-              <label class="checkbox-option" style="background:var(--accent-dim);border-color:rgba(200,245,66,0.3);">
-                <input type="checkbox" name="autorisation_gen" value="oui" id="autoGenCheck" required />
-                J'autorise la génération automatique des textes à partir des informations fournies dans ce questionnaire.
-              </label>
-              <span class="form-hint">Les textes générés seront adaptés à votre activité et optimisés pour le SEO. Vous pourrez les modifier librement après livraison.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ───────────── SECTION 9 — CONTACT ───────────── -->
-        <div class="form-section fade-up">
-          <div class="form-section-title">
-            <div class="form-section-num">9</div>
-            <h2>Vos coordonnées</h2>
-          </div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="prenom_nom">Prénom &amp; Nom <span class="req">*</span></label>
-              <input type="text" id="prenom_nom" name="prenom_nom" placeholder="Jean Dupont" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email <span class="req">*</span></label>
-              <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required />
-            </div>
-            <div class="form-group">
-              <label for="telephone">Téléphone <span class="optional">(optionnel)</span></label>
-              <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" />
-            </div>
-            <div class="form-group">
-              <label for="site_actuel">Site web actuel <span class="optional">(si existant)</span></label>
-              <input type="text" id="site_actuel" name="site_actuel" placeholder="https://monanciensite.fr" />
-            </div>
-            <div class="form-group full">
-              <label for="infos_complementaires">Informations complémentaires <span class="optional">(optionnel)</span></label>
-              <textarea id="infos_complementaires" name="infos_complementaires" rows="3" placeholder="Précisions, contraintes particulières, exemples de sites que vous aimez, questions…"></textarea>
-            </div>
-            <div class="form-group full">
-              <label class="checkbox-option" style="background:var(--bg);">
-                <input type="checkbox" name="rgpd" value="oui" required />
-                J'accepte que mes données soient utilisées pour la création de mon site web, conformément à la <a href="politique-confidentialite.html" style="color:var(--accent);">politique de confidentialité</a>.
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- SUBMIT -->
-        <div class="form-submit fade-up">
-          <button type="submit" class="btn btn-primary btn-lg">
-            Envoyer mon questionnaire →
-          </button>
-          <p class="form-disclaimer">
+          <p class="form-disclaimer" style="text-align:center;margin-top:16px;">
             Aucun paiement requis à cette étape.<br>
             Vous recevrez une proposition et un devis sous 24–48h.
           </p>
@@ -529,7 +360,7 @@
 </footer>
 
 <script>
-/* Cursor */
+/* ─── CURSOR ─── */
 const cursor = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursorDot');
 let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
@@ -547,43 +378,96 @@ function animateCursor() {
 }
 animateCursor();
 
-/* Fade-up */
+/* ─── FADE UP ─── */
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-/* Logo toggle */
-document.querySelectorAll('input[name="logo"]').forEach(r => {
-  r.addEventListener('change', () => {
-    document.getElementById('logoUploadGroup').style.display =
-      r.value === 'oui_upload' && r.checked ? 'flex' : 'none';
+/* ─── THÈME ─── */
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+if (themeToggle) {
+  themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+  themeToggle.addEventListener('click', () => {
+    const c = html.getAttribute('data-theme');
+    const n = c === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', n);
+    localStorage.setItem('theme', n);
+    themeToggle.textContent = n === 'light' ? '🌙' : '☀️';
   });
-});
+}
 
-/* Photos toggle */
-document.querySelectorAll('input[name="photos"]').forEach(r => {
-  r.addEventListener('change', () => {
-    document.getElementById('photosUploadGroup').style.display =
-      r.value === 'oui_upload' && r.checked ? 'flex' : 'none';
-  });
-});
+/* ─── MULTI-ÉTAPES ─── */
+let currentStep = 1;
+const totalSteps = 6;
 
-/* Textes rédigés toggle */
-document.querySelectorAll('input[name="textes_rediges"]').forEach(r => {
-  r.addEventListener('change', () => {
-    const autoGen = document.getElementById('autoGenGroup');
-    const autoCheck = document.getElementById('autoGenCheck');
-    if (r.value === 'non' && r.checked) {
-      autoGen.style.display = 'flex';
-      autoCheck.required = true;
+function updateProgress() {
+  document.getElementById('progressFill').style.width = ((currentStep / totalSteps) * 100) + '%';
+  document.getElementById('progressLabel').textContent = 'Étape ' + currentStep + ' sur ' + totalSteps;
+}
+
+function validateStep(stepNum) {
+  const stepEl = document.querySelector('.form-step[data-step="' + stepNum + '"]');
+  const required = stepEl.querySelectorAll('[required]');
+  let valid = true;
+  required.forEach(el => {
+    const isRadio = el.type === 'radio';
+    const isCheckbox = el.type === 'checkbox';
+    if (isRadio) {
+      const groupName = el.name;
+      const checked = stepEl.querySelector('input[name="' + groupName + '"]:checked');
+      if (!checked) {
+        el.closest('.radio-group, .offer-selector, .form-group')?.classList.add('group-error');
+        valid = false;
+      } else {
+        el.closest('.radio-group, .offer-selector, .form-group')?.classList.remove('group-error');
+      }
+      return;
+    }
+    if (isCheckbox) {
+      if (!el.checked) { el.classList.add('field-error'); valid = false; }
+      else { el.classList.remove('field-error'); }
+      return;
+    }
+    if (!el.value.trim()) {
+      el.classList.add('field-error');
+      valid = false;
     } else {
-      autoGen.style.display = 'none';
-      autoCheck.required = false;
+      el.classList.remove('field-error');
     }
   });
+  return valid;
+}
+
+function goNext() {
+  if (!validateStep(currentStep)) return;
+  if (currentStep < totalSteps) {
+    document.querySelector('.form-step[data-step="' + currentStep + '"]').classList.remove('active');
+    currentStep++;
+    document.querySelector('.form-step[data-step="' + currentStep + '"]').classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function goPrev() {
+  if (currentStep > 1) {
+    document.querySelector('.form-step[data-step="' + currentStep + '"]').classList.remove('active');
+    currentStep--;
+    document.querySelector('.form-step[data-step="' + currentStep + '"]').classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+/* Remove field-error on input */
+document.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('input', () => el.classList.remove('field-error'));
+  el.addEventListener('change', () => el.classList.remove('field-error'));
 });
-const themeToggle=document.getElementById('themeToggle');const html=document.documentElement;const savedTheme=localStorage.getItem('theme')||'dark';html.setAttribute('data-theme',savedTheme);if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
 </script>
 </body>
 </html>

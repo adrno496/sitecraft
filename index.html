@@ -42,7 +42,7 @@
   <button class="mobile-close" id="mobileClose" aria-label="Fermer">✕</button>
   <a href="#fonctionnement" onclick="closeMobile()">Fonctionnement</a>
   <a href="services.html" onclick="closeMobile()">Services</a>
-  <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
+  <a href="#realisations" onclick="closeMobile()">Réalisations</a>
   <a href="a-propos.html" onclick="closeMobile()">À propos</a>
   <a href="contact.html" onclick="closeMobile()">Contact</a>
   <a href="questionnaire.html" class="btn btn-primary" style="margin-top:16px;">Demander mon site</a>
@@ -55,7 +55,7 @@
     <ul class="navbar-links">
       <li><a href="#fonctionnement">Fonctionnement</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
       <li><a href="a-propos.html">À propos</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -77,34 +77,52 @@
     <div class="hero-orb hero-orb-2"></div>
   </div>
 
-  <div class="hero-badge">
-    <span class="badge-dot"></span>
-    <span>+200 sites livrés · Paiement sécurisé · Dispo sous 72h</span>
+  <div class="hero-inner-wrap">
+  <!-- Colonne gauche : texte -->
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>+200 sites livrés · Paiement sécurisé · Dispo sous 72h</span>
+    </div>
+
+    <h1 class="hero-title">
+      Votre site web pro,<br>
+      <span class="hero-title-accent">livré en 72h.</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Pas d'abonnement. Pas d'agence. Vous recevez les fichiers —
+      <strong>vous êtes propriétaire.</strong>
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="#pricing" class="btn btn-primary btn-lg">
+        Voir les offres
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="questionnaire.html" class="btn btn-ghost btn-lg">Démarrer →</a>
+    </div>
+
+    <div class="hero-trust">
+      <span>✓ Paiement après validation</span>
+      <span>✓ Fichiers HTML inclus</span>
+      <span>✓ Sans engagement</span>
+    </div>
+
+    <div class="hero-proof" style="margin-top:16px;">
+      <div class="proof-stars">★★★★★</div>
+      <span class="proof-text">4.9/5 · 47 avis clients vérifiés</span>
+    </div>
   </div>
 
-  <h1 class="hero-title">
-    Ton site web pro,<br>
-    <span class="hero-title-accent">livré en 72h</span><br>
-    sans abonnement.
-  </h1>
-
-  <p class="hero-subtitle">
-    Sites vitrine, portfolios, landing pages — clés en main, optimisés SEO,
-    pensés pour convertir. À partir de <strong>149 €</strong>.
-  </p>
-
-  <div class="hero-cta-group">
-    <a href="#pricing" class="btn btn-primary btn-lg">
-      Voir les offres
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <a href="#portfolio" class="btn btn-ghost btn-lg">Voir des exemples</a>
+  <!-- Colonne droite : showcase réalisations -->
+  <div class="hero-visual">
+    <div class="hero-showcase">
+      <div class="hero-showcase-track" id="heroShowcaseTrack"></div>
+      <div class="hero-showcase-dots" id="heroShowcaseDots"></div>
+    </div>
   </div>
-
-  <div class="hero-proof">
-    <div class="proof-stars">★★★★★</div>
-    <span class="proof-text">4.9/5 · 47 avis clients vérifiés</span>
-  </div>
+  </div><!-- /hero-inner-wrap -->
 </section>
 
 <!-- ══════════════════════════ COMPTEURS ══════════════════════════ -->
@@ -227,111 +245,18 @@
   </div>
 </section>
 
-<!-- ══════════════════════════ PORTFOLIO ══════════════════════════ -->
-<section class="section reveal" id="portfolio">
-  <div class="section-header">
-    <p class="section-label">Nos réalisations</p>
-    <h2 class="section-title">Des sites qui <span style="color: var(--color-primary)">parlent d'eux-mêmes</span></h2>
-    <p class="section-subtitle">Passe ta souris sur chaque projet pour voir le résultat.</p>
-  </div>
-
-  <div class="portfolio-grid">
-
-    <!-- Plomberie Dupont -->
-    <a class="portfolio-card" href="https://dupont.vercel.app/" target="_blank" rel="noopener noreferrer">
-      <div class="portfolio-img-wrap">
-        <img src="images/dupont.png" alt="Site vitrine plombier Vendée – Plomberie Dupont" loading="lazy" width="800" height="500">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-inner">
-            <span class="portfolio-visit-btn">
-              Voir le site
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="portfolio-meta">
-        <span class="portfolio-type">Artisan · Plomberie</span>
-        <span class="portfolio-name">Plomberie Dupont</span>
-      </div>
-    </a>
-
-    <!-- Nexus -->
-    <a class="portfolio-card" href="https://nexus-new-psi.vercel.app/" target="_blank" rel="noopener noreferrer">
-      <div class="portfolio-img-wrap">
-        <img src="images/nexus.png" alt="Site média finance – Nexus" loading="lazy" width="800" height="500">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-inner">
-            <span class="portfolio-visit-btn">
-              Voir le site
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="portfolio-meta">
-        <span class="portfolio-type">Média · Finance</span>
-        <span class="portfolio-name">Nexus</span>
-      </div>
-    </a>
-
-    <!-- EdgeLiquidity -->
-    <a class="portfolio-card" href="https://edgeliquidity-j95e.vercel.app/" target="_blank" rel="noopener noreferrer">
-      <div class="portfolio-img-wrap">
-        <img src="images/edgeliquidity.png" alt="Plateforme éditoriale macro – EdgeLiquidity" loading="lazy" width="800" height="500">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-inner">
-            <span class="portfolio-visit-btn">
-              Voir le site
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="portfolio-meta">
-        <span class="portfolio-type">Édito · Macro / Crypto</span>
-        <span class="portfolio-name">EdgeLiquidity</span>
-      </div>
-    </a>
-
-    <!-- Prop Vert (Diagnostic Littoral Vendée) -->
-    <a class="portfolio-card" href="https://prop-vert-two.vercel.app/" target="_blank" rel="noopener noreferrer">
-      <div class="portfolio-img-wrap">
-        <img src="images/prop.png" alt="Site diagnostic immobilier Vendée" loading="lazy" width="800" height="500">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-inner">
-            <span class="portfolio-visit-btn">
-              Voir le site
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="portfolio-meta">
-        <span class="portfolio-type">Immobilier · Diagnostic</span>
-        <span class="portfolio-name">Diagnostic Littoral Vendée</span>
-      </div>
-    </a>
-
-    <!-- Brittassist -->
-    <a class="portfolio-card" href="https://brittassist.fr/" target="_blank" rel="noopener noreferrer">
-      <div class="portfolio-img-wrap">
-        <img src="images/brittassist.png" alt="Site assistante indépendante – Brittassist" loading="lazy" width="800" height="500">
-        <div class="portfolio-overlay">
-          <div class="portfolio-overlay-inner">
-            <span class="portfolio-visit-btn">
-              Voir le site
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="portfolio-meta">
-        <span class="portfolio-type">Services · Freelance</span>
-        <span class="portfolio-name">Brittassist</span>
-      </div>
-    </a>
-
+<!-- ══════════════════════════ CARROUSEL RÉALISATIONS ══════════════════════════ -->
+<section class="carousel-section" id="realisations">
+  <div class="container">
+    <div class="section-header fade-up" style="margin:0 auto 40px;text-align:center;">
+      <div class="section-label" style="justify-content:center;">Nos réalisations</div>
+      <h2>Des sites qui <span style="color:var(--accent)">parlent d'eux-mêmes</span></h2>
+    </div>
+    <div class="carousel-wrapper" id="carouselWrapper">
+      <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Précédent">‹</button>
+      <div class="carousel-track" id="carouselTrack"></div>
+      <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Suivant">›</button>
+    </div>
   </div>
 </section>
 
@@ -864,10 +789,114 @@ window.addEventListener('scroll', () => {
   }
 });
 
-/* ─── CURSOR HOVER: portfolio cards ─── */
-document.querySelectorAll('.portfolio-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor && cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor && cursor.classList.remove('hover'));
+/* ─── HERO SHOWCASE (réalisations côte-à-côte) ─── */
+const showcaseData = [
+  { img: 'images/dupont.png',        name: 'Plomberie Dupont',           cat: 'Artisan · Plomberie' },
+  { img: 'images/brittassist.png',   name: 'Brittassist',                cat: 'Services · Freelance' },
+  { img: 'images/edgeliquidity.png', name: 'EdgeLiquidity',              cat: 'Édito · Finance' },
+  { img: 'images/nexus.png',         name: 'Nexus',                      cat: 'Média · Finance' },
+  { img: 'images/prop.png',          name: 'Diagnostic Littoral Vendée', cat: 'Immobilier · Diagnostic' },
+];
+let showcaseIdx = 0;
+let showcasePaused = false;
+const showcaseTrack = document.getElementById('heroShowcaseTrack');
+const showcaseDots  = document.getElementById('heroShowcaseDots');
+
+showcaseData.forEach((s, i) => {
+  const slide = document.createElement('div');
+  slide.className = 'hero-showcase-slide';
+  slide.innerHTML = `
+    <img src="${s.img}" alt="${s.name}" ${i === 0 ? '' : 'loading="lazy"'} />
+    <div class="hero-showcase-caption">
+      <div class="hero-showcase-name">${s.name}</div>
+      <div class="hero-showcase-cat">${s.cat}</div>
+    </div>`;
+  showcaseTrack.appendChild(slide);
+
+  const dot = document.createElement('button');
+  dot.className = 'hero-showcase-dot' + (i === 0 ? ' active' : '');
+  dot.setAttribute('aria-label', s.name);
+  dot.addEventListener('click', () => goShowcase(i));
+  showcaseDots.appendChild(dot);
+});
+
+function goShowcase(idx) {
+  showcaseIdx = idx;
+  showcaseTrack.style.transform = `translateX(-${idx * 100}%)`;
+  showcaseDots.querySelectorAll('.hero-showcase-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+setInterval(() => { if (!showcasePaused) goShowcase((showcaseIdx + 1) % showcaseData.length); }, 3000);
+document.querySelector('.hero-visual').addEventListener('mouseenter', () => { showcasePaused = true; });
+document.querySelector('.hero-visual').addEventListener('mouseleave', () => { showcasePaused = false; });
+
+/* ─── CARROUSEL SECTION RÉALISATIONS ─── */
+const carouselSlides = [
+  { img: 'images/dupont.png',        title: 'Plomberie Dupont',           category: 'Artisan · Plomberie',        href: 'site-web-plombier-nantes.html' },
+  { img: 'images/brittassist.png',   title: 'Brittassist',                category: 'Services · Freelance',       href: 'https://brittassist.fr/' },
+  { img: 'images/edgeliquidity.png', title: 'EdgeLiquidity',              category: 'Édito · Finance',            href: 'https://edgeliquidity-j95e.vercel.app/' },
+  { img: 'images/nexus.png',         title: 'Nexus',                      category: 'Média · Finance',            href: 'https://nexus-new-psi.vercel.app/' },
+  { img: 'images/prop.png',          title: 'Diagnostic Littoral Vendée', category: 'Immobilier · Diagnostic',    href: 'https://prop-vert-two.vercel.app/' },
+];
+let carouselIndex = 0;
+let carouselPaused = false;
+const carouselTrack = document.getElementById('carouselTrack');
+const carouselWrapper = document.getElementById('carouselWrapper');
+
+function getSpv() {
+  if (window.innerWidth >= 1024) return Math.min(3, carouselSlides.length);
+  if (window.innerWidth >= 641) return Math.min(2, carouselSlides.length);
+  return 1;
+}
+function getMaxIdx() { return Math.max(0, carouselSlides.length - getSpv()); }
+
+function buildCarousel() {
+  const spv = getSpv();
+  carouselTrack.style.transition = 'none';
+  carouselTrack.innerHTML = '';
+  carouselSlides.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'carousel-slide';
+    el.style.width = (100 / spv) + '%';
+    const ext = s.href.startsWith('http');
+    el.innerHTML = `<div class="carousel-card">
+      <div class="carousel-thumb" style="background:#111;">
+        <img src="${s.img}" alt="${s.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+      </div>
+      <div class="carousel-info">
+        <div class="carousel-name">${s.title}</div>
+        <div class="carousel-cat">${s.category}</div>
+        <a href="${s.href}" class="carousel-link" ${ext ? 'target="_blank" rel="noopener"' : ''}>Voir le site →</a>
+      </div>
+    </div>`;
+    carouselTrack.appendChild(el);
+  });
+  setCarouselPos(false);
+}
+function setCarouselPos(animate) {
+  const spv = getSpv();
+  carouselTrack.style.transition = animate ? 'transform 0.5s cubic-bezier(0.4,0,0.2,1)' : 'none';
+  carouselTrack.style.transform = `translateX(-${carouselIndex * (100 / spv)}%)`;
+}
+function carouselNext() {
+  carouselIndex = carouselIndex >= getMaxIdx() ? 0 : carouselIndex + 1;
+  setCarouselPos(true);
+}
+function carouselPrev() {
+  carouselIndex = carouselIndex <= 0 ? getMaxIdx() : carouselIndex - 1;
+  setCarouselPos(true);
+}
+buildCarousel();
+document.getElementById('carouselNext').addEventListener('click', carouselNext);
+document.getElementById('carouselPrev').addEventListener('click', carouselPrev);
+carouselWrapper.addEventListener('mouseenter', () => { carouselPaused = true; });
+carouselWrapper.addEventListener('mouseleave', () => { carouselPaused = false; });
+setInterval(() => { if (!carouselPaused) carouselNext(); }, 2000);
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.carousel-slide').forEach(el => {
+    el.style.width = (100 / getSpv()) + '%';
+  });
+  if (carouselIndex > getMaxIdx()) carouselIndex = getMaxIdx();
+  setCarouselPos(false);
 });
 </script>
 </body>

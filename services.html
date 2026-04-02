@@ -206,18 +206,22 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-dot" id="cursorDot"></div>
 
-<nav class="navbar scrolled">
+<nav class="navbar scrolled" id="navbar">
   <div class="container">
     <a href="index.html" class="navbar-logo">Site<span>Craft</span></a>
-    <ul class="navbar-links">
+    <ul class="navbar-links" id="navbarLinks">
       <li><a href="services.html">Services</a></li>
       <li><a href="a-propos.html">À propos</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li class="nav-mobile-cta"><a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Demander mon site</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
       <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">☀️</button>
       <a href="questionnaire.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Demander mon site</a>
     </div>
+    <button class="navbar-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -239,25 +243,31 @@
         <div class="offer-name">Starter</div>
         <div class="offer-price"><sup>€</sup>149</div>
         <ul class="offer-features">
-          <li>1 page (accueil)</li>
-          <li>Design responsive</li>
-          <li>SEO de base</li>
-          <li>Livraison ZIP en 24h</li>
+          <li>1 page HTML complète (accueil)</li>
+          <li>Design responsive mobile-first</li>
+          <li>Nom, slogan, services, coordonnées</li>
+          <li>Formulaire de contact fonctionnel (Formspree ou mailto)</li>
+          <li>SEO de base : title, meta description, Open Graph</li>
+          <li>Livraison ZIP : <code>index.html</code> + <code>styles.css</code> + guide PDF</li>
+          <li>1 révision incluse</li>
         </ul>
         <a href="questionnaire.html" class="btn btn-outline" style="text-align:center;">Choisir Starter</a>
       </div>
 
       <!-- Pro (recommandé) -->
       <div class="offer-card best">
-        <div class="offer-badge">Recommandé</div>
+        <div class="offer-badge">⭐ Recommandé</div>
         <div class="offer-name">Pro</div>
         <div class="offer-price"><sup>€</sup>249</div>
         <ul class="offer-features">
-          <li>3 à 5 pages</li>
-          <li>Design sur mesure</li>
-          <li>SEO avancé + Google Analytics</li>
-          <li>Formulaire de contact</li>
-          <li>Livraison ZIP en 48h</li>
+          <li>3 à 5 pages HTML (accueil + services + à propos + contact + 1 bonus)</li>
+          <li>Design sur mesure (couleurs, typographie, ton adaptés à votre métier)</li>
+          <li>SEO local avancé : H1/H2, balisage Schema.org LocalBusiness</li>
+          <li>Google Analytics 4 installé et configuré</li>
+          <li>Formulaire de contact fonctionnel</li>
+          <li>Numéro de téléphone cliquable (mobile)</li>
+          <li>Livraison ZIP + guide PDF mise en ligne (15 min)</li>
+          <li>2 révisions incluses</li>
         </ul>
         <a href="questionnaire.html" class="btn btn-primary" style="text-align:center;">Choisir Pro</a>
       </div>
@@ -267,11 +277,15 @@
         <div class="offer-name">Premium</div>
         <div class="offer-price"><sup>€</sup>399</div>
         <ul class="offer-features">
-          <li>Jusqu'à 10 pages</li>
-          <li>Blog ou catalogue</li>
-          <li>SEO local optimisé</li>
-          <li>Mise en ligne incluse</li>
-          <li>Livraison ZIP en 48h</li>
+          <li>Jusqu'à 10 pages HTML (accueil + services + blog/galerie + contact + pages SEO locales)</li>
+          <li>Design premium sur mesure</li>
+          <li>SEO local optimisé par page (balises, Schema.org, sitemap.xml)</li>
+          <li>Blog ou catalogue de réalisations (pages statiques)</li>
+          <li>Mise en ligne incluse sur votre hébergeur (Vercel, Netlify ou OVH)</li>
+          <li>Google Analytics 4 + Search Console configurés</li>
+          <li>Formulaire de contact + appel téléphonique de suivi</li>
+          <li>Livraison ZIP + guide PDF + 30 jours de support email</li>
+          <li>3 révisions incluses</li>
         </ul>
         <a href="questionnaire.html" class="btn btn-outline" style="text-align:center;">Choisir Premium</a>
       </div>
@@ -365,6 +379,10 @@ const savedTheme=localStorage.getItem('theme')||'dark';
 html.setAttribute('data-theme',savedTheme);
 if(themeToggle){themeToggle.textContent=savedTheme==='light'?'🌙':'☀️';themeToggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme');const n=c==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n);themeToggle.textContent=n==='light'?'🌙':'☀️';});}
 document.querySelectorAll('.fade-up').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';setTimeout(()=>{el.style.transition='opacity 0.7s ease, transform 0.7s ease';el.style.opacity='1';el.style.transform='translateY(0)';},(parseInt(el.dataset.delay)||0));});
+/* ─── HAMBURGER ─── */
+const hamburger=document.getElementById('hamburger');
+const navbarLinks=document.getElementById('navbarLinks');
+if(hamburger&&navbarLinks){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');navbarLinks.classList.toggle('open');});}
 </script>
 </body>
 </html>

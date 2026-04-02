@@ -804,13 +804,21 @@ showcaseData.forEach((s, i) => {
 });
 
 function goShowcase(idx) {
-  showcaseIdx = idx;
-  showcaseTrack.style.transform = `translateX(-${idx * 100}%)`;
-  showcaseDots.querySelectorAll('.hero-showcase-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+  showcaseIdx = ((idx % showcaseData.length) + showcaseData.length) % showcaseData.length;
+  showcaseTrack.style.transform = `translateX(-${showcaseIdx * 100}%)`;
+  showcaseDots.querySelectorAll('.hero-showcase-dot').forEach((d, i) => d.classList.toggle('active', i === showcaseIdx));
 }
-setInterval(() => { if (!showcasePaused) goShowcase((showcaseIdx + 1) % showcaseData.length); }, 3000);
-document.querySelector('.hero-visual').addEventListener('mouseenter', () => { showcasePaused = true; });
-document.querySelector('.hero-visual').addEventListener('mouseleave', () => { showcasePaused = false; });
+setInterval(() => { if (!showcasePaused) goShowcase(showcaseIdx + 1); }, 3500);
+const heroVisual = document.querySelector('.hero-visual');
+heroVisual.addEventListener('mouseenter', () => { showcasePaused = true; });
+heroVisual.addEventListener('mouseleave', () => { showcasePaused = false; });
+let tsX = 0;
+heroVisual.addEventListener('touchstart', e => { tsX = e.touches[0].clientX; showcasePaused = true; }, { passive: true });
+heroVisual.addEventListener('touchend', e => {
+  const diff = tsX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goShowcase(showcaseIdx + (diff > 0 ? 1 : -1));
+  showcasePaused = false;
+}, { passive: true });
 
 </script>
 </body>

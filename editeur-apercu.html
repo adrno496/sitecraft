@@ -213,22 +213,83 @@ html,body{height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;backgroun
   box-shadow:0 4px 14px rgba(0,0,0,.15);
 }
 .cta-bar a:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.2);}
+
+/* ── HAMBURGER ── */
+.hamburger-btn{
+  display:none;align-items:center;justify-content:center;
+  width:36px;height:36px;border:1px solid var(--border);
+  border-radius:8px;background:transparent;color:var(--text);
+  cursor:pointer;flex-shrink:0;transition:all .2s;margin-right:8px;
+}
+.hamburger-btn:hover{background:var(--input-bg);border-color:var(--border-h);}
+.hamburger-btn svg{width:18px;height:18px;}
+
+/* ── SIDEBAR OVERLAY ── */
+.sidebar-overlay{
+  display:none;position:fixed;inset:0;z-index:199;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(2px);
+}
+.sidebar-overlay.active{display:block;}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px){
+  .hamburger-btn{display:flex;}
+
+  .topbar{padding:0 14px;}
+  .topbar-logo{font-size:16px;}
+
+  /* hide desktop/mobile view toggle labels on very small screens */
+  .view-btn span{display:none;}
+  .view-btn{padding:6px 10px;}
+
+  #liveTag{display:none;}
+
+  /* sidebar slides in from left */
+  .sidebar{
+    position:fixed;top:52px;left:0;bottom:56px;
+    z-index:200;
+    transform:translateX(-100%);
+    transition:transform .3s cubic-bezier(.4,0,.2,1);
+    box-shadow:none;
+  }
+  .sidebar.open{
+    transform:translateX(0);
+    box-shadow:8px 0 40px rgba(0,0,0,.5);
+  }
+
+  /* preview fills full width */
+  .workspace{height:calc(100vh - 52px - 56px);}
+  .preview-area{width:100%;}
+
+  /* cta bar stacks on very small */
+  .cta-bar{padding:10px 16px;gap:10px;flex-wrap:wrap;}
+  .cta-bar-text{font-size:13px;text-align:center;}
+  .cta-bar a{padding:8px 18px;font-size:13px;}
+}
 </style>
 </head>
 <body>
 
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
 <!-- TOP BAR -->
 <div class="topbar">
-  <a class="topbar-logo" href="index.html">Site<span>Forge</span></a>
+  <div style="display:flex;align-items:center;">
+    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a class="topbar-logo" href="index.html">Site<span>Forge</span></a>
+  </div>
 
   <div class="topbar-center">
     <button class="view-btn active" id="btnDesktop" onclick="setView('desktop')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      Bureau
+      <span>Bureau</span>
     </button>
     <button class="view-btn" id="btnMobile" onclick="setView('mobile')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
-      Mobile
+      <span>Mobile</span>
     </button>
     <div id="liveTag"><span class="dot-live"></span>Aperçu en direct</div>
   </div>
@@ -402,6 +463,20 @@ Débouchage canalisations</textarea>
 </div>
 
 <script>
+// ══════════════════════════════════════════
+//  SIDEBAR MOBILE
+// ══════════════════════════════════════════
+function toggleSidebar(){
+  var sb = document.querySelector('.sidebar');
+  var ov = document.getElementById('sidebarOverlay');
+  var open = sb.classList.toggle('open');
+  ov.classList.toggle('active', open);
+}
+function closeSidebar(){
+  document.querySelector('.sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('active');
+}
+
 // ══════════════════════════════════════════
 //  STATE
 // ══════════════════════════════════════════

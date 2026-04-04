@@ -1339,6 +1339,30 @@ function updateSummary() {
   document.getElementById('priceSummaryContent').innerHTML = html;
 }
 
+/* ════════════════════════════════════════
+   REDIRECTION VERS L'ÉDITEUR
+════════════════════════════════════════ */
+document.getElementById('questionnaireForm').addEventListener('submit', function() {
+  const name    = (document.getElementById('nom_entreprise').value || '').trim();
+  const tagline = (document.getElementById('metier').value || '').trim();
+  const couleurs = (document.getElementById('couleurs').value || '').trim();
+
+  // Tenter d'extraire une couleur hex dans le champ couleurs, sinon valeur par défaut
+  const hexMatch = couleurs.match(/#([0-9a-fA-F]{3,6})\b/);
+  const color = hexMatch ? hexMatch[0] : '#2563eb';
+
+  const params = new URLSearchParams();
+  if (name)    params.set('name', name);
+  if (tagline) params.set('tagline', tagline);
+  params.set('color', color);
+
+  // Mettre à jour le champ _next pour que FormSubmit redirige vers l'éditeur
+  var nextInput = document.querySelector('input[name="_next"]');
+  if (nextInput) {
+    nextInput.value = 'https://siteforge.fr/editeur-apercu.html?' + params.toString();
+  }
+});
+
 // Keyboard accessibility for formula cards
 document.querySelectorAll('.formula-card').forEach(card => {
   card.addEventListener('keydown', (e) => {

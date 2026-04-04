@@ -2,6 +2,23 @@
 <html lang="fr">
 <head>
   <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('siteforge-theme')||'light');</script>
+
+  <!-- ══ Google Analytics ══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8SFGLWXLM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z8SFGLWXLM');
+  </script>
+
+  <!-- ══ Google Tag Manager ══ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T5P3C8J');</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
@@ -23,8 +40,377 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ══════════════════════════════════════════
+       SOCIAL PROOF TOPBAR
+    ══════════════════════════════════════════ */
+    .social-proof-topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1100;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #fff;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .social-proof-topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .sp-avatar-stack {
+      display: flex;
+      align-items: center;
+    }
+    .sp-avatar-stack img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #1e293b;
+      margin-left: -7px;
+      object-fit: cover;
+    }
+    .sp-avatar-stack img:first-child { margin-left: 0; }
+    .sp-count {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .sp-separator {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,0.2);
+    }
+    .sp-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .sp-stars { color: #fbbf24; font-size: 13px; letter-spacing: 1px; }
+    .sp-note  { font-size: 13px; font-weight: 700; color: #fff; }
+    .sp-avis  { font-size: 12px; color: #94a3b8; }
+
+    @media (max-width: 600px) {
+      .social-proof-topbar { padding: 7px 0; }
+      .social-proof-topbar-inner { gap: 10px; }
+      .sp-avatar-stack img { width: 24px; height: 24px; }
+      .sp-count, .sp-note, .sp-stars { font-size: 11px; }
+      .sp-separator { display: none; }
+    }
+
+    /* Décaler la navbar sous la topbar */
+    .social-proof-topbar + .navbar-mobile,
+    .social-proof-topbar ~ .navbar {
+      top: 44px !important;
+    }
+    @media (max-width: 600px) {
+      .social-proof-topbar + .navbar-mobile,
+      .social-proof-topbar ~ .navbar { top: 40px !important; }
+    }
+    /* Décaler le hero pour compenser les deux barres fixes */
+    body { padding-top: 44px; }
+    @media (max-width: 600px) { body { padding-top: 40px; } }
+
+    /* Navbar scrolled state */
+    .navbar.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    /* ══════════════════════════════════════════
+       WIDGET EDITH — RESET
+    ══════════════════════════════════════════ */
+    #edith-floating-buttons,
+    #edith-floating-buttons *,
+    #edith-chat-container,
+    #edith-chat-container * {
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* ══ OVERLAY MOBILE ══ */
+    #edith-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 9998;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #edith-overlay.active { display: block; opacity: 1; }
+
+    /* ══ BOUTON FLOTTANT ══ */
+    #edith-floating-buttons {
+      position: fixed !important;
+      bottom: 32px !important;
+      right: 24px !important;
+      z-index: 999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-end !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+    #edith-toggle {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 8px 20px 8px 8px !important;
+      background: linear-gradient(135deg, #2F40AD 0%, #394FB7 50%, #6366f1 100%) !important;
+      border: none !important;
+      border-radius: 100px !important;
+      cursor: pointer !important;
+      box-shadow: 0 20px 50px -10px rgba(0,0,0,0.4), 0 0 36px rgba(99,102,241,0.3) !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+    }
+    #edith-toggle:hover { transform: translateY(-3px) scale(1.02) !important; }
+    #edith-toggle .edith-btn-avatar {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      object-fit: cover !important;
+      border: 2px solid rgba(255,255,255,0.3) !important;
+    }
+    #edith-toggle .edith-btn-text {
+      color: white !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+    }
+    #edith-toggle .edith-btn-badge {
+      position: absolute !important;
+      top: 6px !important;
+      right: 6px !important;
+      width: 12px !important;
+      height: 12px !important;
+      background: #22c55e !important;
+      border-radius: 50% !important;
+      border: 2px solid #2F40AD !important;
+      animation: edith-pulse 2s infinite !important;
+    }
+    @keyframes edith-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    /* ══ CHAT CONTAINER — DESKTOP ══ */
+    #edith-chat-container {
+      position: fixed !important;
+      bottom: 110px !important;
+      right: 24px !important;
+      width: 380px !important;
+      height: 500px !important;
+      max-height: calc(100vh - 160px) !important;
+      background: #0f172a !important;
+      border-radius: 24px !important;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5) !important;
+      display: none !important;
+      flex-direction: column !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      z-index: 9999 !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+    #edith-chat-container.open {
+      display: flex !important;
+      animation: edith-slideUp 0.3s ease !important;
+    }
+    @keyframes edith-slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══ HEADER ══ */
+    #edith-header {
+      background: linear-gradient(135deg, #2F40AD 0%, #394FB7 50%, #6366f1 100%) !important;
+      padding: 16px 20px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-shrink: 0 !important;
+    }
+    #edith-header .edith-header-info {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+    #edith-header .edith-avatar-wrapper { position: relative !important; flex-shrink: 0 !important; }
+    #edith-header .edith-avatar {
+      width: 48px !important; height: 48px !important;
+      border-radius: 50% !important; object-fit: cover !important;
+      border: 2px solid rgba(255,255,255,0.3) !important;
+    }
+    #edith-header .edith-status-dot {
+      position: absolute !important; bottom: 2px !important; right: 2px !important;
+      width: 12px !important; height: 12px !important;
+      background: #22c55e !important; border-radius: 50% !important;
+      border: 2px solid #394FB7 !important;
+    }
+    #edith-header .edith-header-text { display: flex !important; flex-direction: column !important; }
+    #edith-header .edith-header-text strong { color: white !important; font-size: 16px !important; font-weight: 700 !important; }
+    #edith-header .edith-header-text span  { color: rgba(255,255,255,0.8) !important; font-size: 12px !important; }
+    #edith-header .edith-close {
+      background: rgba(255,255,255,0.15) !important; border: none !important;
+      color: white !important; width: 36px !important; height: 36px !important;
+      border-radius: 50% !important; cursor: pointer !important;
+      display: flex !important; align-items: center !important; justify-content: center !important;
+      transition: all 0.2s !important; flex-shrink: 0 !important;
+    }
+    #edith-header .edith-close:hover { background: rgba(255,255,255,0.25) !important; }
+
+    /* ══ MESSAGES ══ */
+    #edith-messages {
+      flex: 1 !important; overflow-y: auto !important; padding: 16px !important;
+      display: flex !important; flex-direction: column !important;
+      gap: 12px !important; background: #0f172a !important;
+    }
+    #edith-messages .edith-msg {
+      max-width: 85% !important; padding: 12px 16px !important;
+      border-radius: 16px !important; line-height: 1.5 !important;
+      font-size: 14px !important; word-wrap: break-word !important;
+    }
+    #edith-messages .edith-msg.user {
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+      color: white !important; align-self: flex-end !important;
+      border-bottom-right-radius: 4px !important;
+      margin-left: auto !important; margin-right: 0 !important;
+    }
+    #edith-messages .edith-msg.edith {
+      background: #1e293b !important; color: #f8fafc !important;
+      align-self: flex-start !important; border-bottom-left-radius: 4px !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      margin-right: auto !important; margin-left: 0 !important;
+    }
+
+    /* ══ TYPING INDICATOR ══ */
+    #edith-messages .edith-msg.typing-indicator { padding: 12px 16px !important; display: flex !important; align-items: center !important; }
+    #edith-messages .typing-content { display: flex !important; align-items: center !important; gap: 6px !important; }
+    #edith-messages .typing-dot {
+      width: 8px !important; height: 8px !important;
+      background: #6366f1 !important; border-radius: 50% !important;
+      animation: edith-bounce 1.4s infinite ease-in-out !important;
+    }
+    #edith-messages .typing-dot:nth-child(1) { animation-delay: 0s !important; }
+    #edith-messages .typing-dot:nth-child(2) { animation-delay: 0.2s !important; }
+    #edith-messages .typing-dot:nth-child(3) { animation-delay: 0.4s !important; }
+    #edith-messages .typing-text { font-size: 12px !important; color: #94a3b8 !important; margin-left: 4px !important; }
+    @keyframes edith-bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40%           { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* ══ INPUT ══ */
+    #edith-input-wrapper {
+      padding: 12px 16px 16px !important; background: #0f172a !important;
+      border-top: 1px solid rgba(255,255,255,0.1) !important; flex-shrink: 0 !important;
+    }
+    #edith-input {
+      display: flex !important; gap: 8px !important;
+      background: #334155 !important; border-radius: 100px !important;
+      padding: 6px 6px 6px 16px !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+    }
+    #edith-input:focus-within { border-color: #6366f1 !important; }
+    #edith-input input {
+      flex: 1 !important; background: none !important; border: none !important;
+      color: #f8fafc !important; font-size: 14px !important; outline: none !important;
+      font-family: inherit !important; min-width: 0 !important;
+    }
+    #edith-input input::placeholder { color: #94a3b8 !important; }
+    #edith-send {
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+      border: none !important; width: 40px !important; height: 40px !important;
+      border-radius: 50% !important; cursor: pointer !important;
+      display: flex !important; align-items: center !important; justify-content: center !important;
+      color: white !important; transition: all 0.2s !important; flex-shrink: 0 !important;
+    }
+    #edith-send:hover { transform: scale(1.05) !important; }
+    .edith-powered {
+      text-align: center !important; font-size: 11px !important;
+      color: #94a3b8 !important; margin-top: 10px !important; opacity: 0.6 !important;
+    }
+
+    /* ══ RESPONSIVE MOBILE ══ */
+    @media (max-width: 768px) {
+      #edith-floating-buttons { bottom: 20px !important; right: 12px !important; }
+      #edith-toggle { padding: 6px 14px 6px 6px !important; }
+      #edith-toggle .edith-btn-avatar { width: 40px !important; height: 40px !important; }
+      #edith-toggle .edith-btn-text { font-size: 13px !important; }
+      #edith-chat-container {
+        position: fixed !important; bottom: 0 !important; left: 0 !important;
+        right: 0 !important; top: auto !important; width: 100% !important;
+        height: 65vh !important; max-height: 65vh !important;
+        border-radius: 24px 24px 0 0 !important;
+        animation: edith-slideUpMobile 0.3s ease !important;
+      }
+      @keyframes edith-slideUpMobile {
+        from { transform: translateY(100%); }
+        to   { transform: translateY(0); }
+      }
+      #edith-header { padding: 14px 16px !important; }
+      #edith-header .edith-avatar { width: 42px !important; height: 42px !important; }
+      #edith-messages { padding: 12px !important; gap: 10px !important; }
+      #edith-messages .edith-msg { max-width: 88% !important; padding: 10px 14px !important; font-size: 14px !important; border-radius: 14px !important; }
+      #edith-input-wrapper {
+        padding: 10px 14px !important;
+        padding-bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+      }
+      #edith-input input { font-size: 16px !important; }
+      #edith-send { width: 38px !important; height: 38px !important; }
+      .edith-powered { font-size: 10px !important; margin-top: 8px !important; }
+    }
+    @media (max-width: 380px) {
+      #edith-toggle {
+        padding: 5px !important; border-radius: 50% !important;
+        width: 52px !important; height: 52px !important; justify-content: center !important;
+      }
+      #edith-toggle .edith-btn-text { display: none !important; }
+      #edith-toggle .edith-btn-avatar { width: 42px !important; height: 42px !important; }
+      #edith-chat-container { height: 60vh !important; max-height: 60vh !important; }
+    }
+    @media (max-width: 900px) and (orientation: landscape) {
+      #edith-chat-container { height: 85vh !important; max-height: 85vh !important; }
+      #edith-header { padding: 10px 14px !important; }
+      #edith-header .edith-avatar { width: 36px !important; height: 36px !important; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- ══ GTM noscript ══ -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5P3C8J" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ══════════════════════ SOCIAL PROOF TOPBAR ══════════════════════ -->
+<div class="social-proof-topbar" role="banner" aria-label="Preuve sociale">
+  <div class="social-proof-topbar-inner">
+    <div class="sp-avatar-stack" aria-hidden="true">
+      <img src="https://i.pravatar.cc/40?img=11" alt="">
+      <img src="https://i.pravatar.cc/40?img=32" alt="">
+      <img src="https://i.pravatar.cc/40?img=47" alt="">
+      <img src="https://i.pravatar.cc/40?img=58" alt="">
+    </div>
+    <span class="sp-count">+120 clients satisfaits</span>
+    <div class="sp-separator" aria-hidden="true"></div>
+    <div class="sp-rating">
+      <span class="sp-stars" aria-label="5 étoiles">★★★★★</span>
+      <span class="sp-note">4.9</span>
+      <span class="sp-avis">/ 5 &nbsp;(87 avis)</span>
+    </div>
+    <div class="sp-separator" aria-hidden="true"></div>
+    <span class="sp-count">🚀 Livraison garantie 72h</span>
+  </div>
+</div>
 
 <!-- ══════════════════════ MOBILE NAV ══════════════════════ -->
 <nav class="navbar-mobile" id="mobileNav" aria-label="Navigation mobile">
@@ -32,6 +418,7 @@
   <a href="index.html">Accueil</a>
   <a href="#offres">Les Offres</a>
   <a href="realisations.html">Mes Réalisations</a>
+  <a href="editeur-apercu.html">Aperçu gratuit</a>
   <a href="contact.html">Contact</a>
   <a href="questionnaire.html" class="btn-accent" style="margin-top:8px;">Démarrer</a>
 </nav>
@@ -44,6 +431,7 @@
       <li><a href="index.html" class="active">Accueil</a></li>
       <li><a href="#offres">Les Offres</a></li>
       <li><a href="realisations.html">Mes Réalisations</a></li>
+      <li><a href="editeur-apercu.html">Aperçu gratuit</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="navbar-cta">
@@ -78,6 +466,7 @@
       <div class="hero-cta-row">
         <a href="#offres" class="btn-accent">Voir les offres</a>
         <a href="realisations.html" class="hero-link">Voir mes réalisations →</a>
+        <a href="editeur-apercu.html" class="hero-link">Prévisualiser mon site →</a>
       </div>
     </div>
   </div>
@@ -341,30 +730,83 @@
   </div>
 </footer>
 
+<!-- ══════════════════════ WIDGET EDITH ══════════════════════ -->
+
+<!-- Bouton flottant -->
+<div id="edith-floating-buttons">
+  <button id="edith-toggle" onclick="toggleEdithChat()" aria-label="Ouvrir le chat avec Edith">
+    <img src="https://i.pravatar.cc/150?img=47"
+         alt="Edith, conseillère SiteForge" class="edith-btn-avatar">
+    <span class="edith-btn-text">Une question ?</span>
+    <span class="edith-btn-badge" aria-hidden="true"></span>
+  </button>
+</div>
+
+<!-- Overlay (fermer sur clic mobile) -->
+<div id="edith-overlay" onclick="toggleEdithChat()" aria-hidden="true"></div>
+
+<!-- Fenêtre de chat -->
+<div id="edith-chat-container" role="dialog" aria-label="Chat avec Edith" aria-modal="true">
+  <div id="edith-header">
+    <div class="edith-header-info">
+      <div class="edith-avatar-wrapper">
+        <img src="https://i.pravatar.cc/150?img=47"
+             alt="Edith" class="edith-avatar">
+        <span class="edith-status-dot" aria-hidden="true"></span>
+      </div>
+      <div class="edith-header-text">
+        <strong>Edith</strong>
+        <span>Conseillère SiteForge • En ligne</span>
+      </div>
+    </div>
+    <button onclick="toggleEdithChat()" class="edith-close" aria-label="Fermer le chat">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="edith-messages" aria-live="polite" aria-atomic="false"></div>
+
+  <div id="edith-input-wrapper">
+    <div id="edith-input">
+      <input type="text" id="edith-question"
+             placeholder="Posez votre question..."
+             onkeypress="if(event.key==='Enter')sendToEdith()"
+             autocomplete="off">
+      <button onclick="sendToEdith()" id="edith-send" aria-label="Envoyer">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="edith-powered" aria-hidden="true">Propulsé par SiteForge</div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
 <script>
-  // ── Theme (appliquer avant render pour éviter le flash) ──
+  // ── Theme (éviter le flash) ──
   (function() {
     const saved = localStorage.getItem('siteforge-theme') || 'light';
     document.documentElement.setAttribute('data-theme', saved);
   })();
 </script>
+
 <script>
   // ── Mobile menu ──
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileClose = document.getElementById('mobileClose');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileNav  = document.getElementById('mobileNav');
+  const mobileClose= document.getElementById('mobileClose');
 
   hamburger.addEventListener('click', () => {
     mobileNav.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
   });
-
   mobileClose.addEventListener('click', () => {
     mobileNav.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
   });
-
-  // Close mobile nav on outside click
   mobileNav.addEventListener('click', (e) => {
     if (e.target === mobileNav) {
       mobileNav.classList.remove('open');
@@ -386,6 +828,12 @@
     applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 
+  // ── Navbar scrolled ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
   // ── FAQ accordion ──
   document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
@@ -401,6 +849,129 @@
       }
     });
   });
+
+  // ── Smooth scroll ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+
+<script>
+// ══════════════════════════════════════════
+//  CHATBOT EDITH — SiteForge
+// ══════════════════════════════════════════
+(function(){
+  var EDITH_WEBHOOK = 'https://n8n.srv1155413.hstgr.cloud/webhook/lisa-chat';
+  var chatOpen = false;
+  var initialized = false;
+  var conversationHistory = [];
+  var isTyping = false;
+  var sessionId = 'sf_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+  window.toggleEdithChat = function() {
+    var container = document.getElementById('edith-chat-container');
+    var overlay   = document.getElementById('edith-overlay');
+    chatOpen = !chatOpen;
+
+    container.classList.toggle('open', chatOpen);
+    if (overlay) overlay.classList.toggle('active', chatOpen);
+
+    // Bloquer le scroll du body sur mobile
+    document.body.style.overflow = chatOpen ? 'hidden' : '';
+
+    if (chatOpen && !initialized) {
+      initialized = true;
+      var welcome = 'Bonjour ! 👋 Je suis Edith, conseillère SiteForge. Je peux vous aider à choisir la bonne formule, répondre à vos questions sur nos délais ou nos tarifs. Par où voulez-vous commencer ?';
+      setTimeout(function() { addMessage(welcome, 'edith'); }, 500);
+    }
+
+    if (chatOpen) {
+      setTimeout(function() {
+        var input = document.getElementById('edith-question');
+        if (input) input.focus();
+      }, 300);
+    }
+  };
+
+  window.sendToEdith = function() {
+    if (isTyping) return;
+    var input = document.getElementById('edith-question');
+    var msg = input.value.trim();
+    if (!msg) return;
+
+    addMessage(msg, 'user');
+    conversationHistory.push({ role: 'user', content: msg });
+    input.value = '';
+    isTyping = true;
+
+    setTimeout(function() {
+      showTypingIndicator();
+
+      fetch(EDITH_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: msg,
+          brand: 'SiteForge',
+          session_id: sessionId,
+          page_type: 'landing',
+          page_url: window.location.href,
+          history: conversationHistory.slice(-10),
+          context: "Tu es Edith, conseillère commerciale pour SiteForge. SiteForge crée des sites web professionnels statiques ultra-rapides pour artisans, freelances et PME françaises, livrés en 72h garanties, sans abonnement, le client reçoit les fichiers source et en est propriétaire à 100%. Il existe 3 formules : Essentiel à 149€ (1 page, SEO de base, formulaire de contact, livraison 72h), Professionnel à 249€ (3 à 5 pages, SEO avancé, Google Maps, livraison 72h) — c'est la plus populaire —, et Premium à 399€ (5 à 8 pages, SEO premium, blog ou galerie, animations avancées, livraison 72h). Toutes les formules sont en paiement unique, sans abonnement, révisions illimitées jusqu'à validation, et paiement uniquement après aperçu validé. Le processus : 1) le client remplit le questionnaire en 2 min, 2) le site est créé en 72h, 3) aperçu envoyé avant paiement, 4) validation puis livraison des fichiers ZIP. Réponds toujours en français, de façon chaleureuse et concise. Si le client hésite entre deux formules, pose-lui une question sur son besoin (nombre de pages, si il a un blog, etc.). Si il veut démarrer, oriente-le vers le questionnaire sur /questionnaire.html."
+        })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        setTimeout(function() {
+          hideTypingIndicator();
+          var response = data.response || 'Désolée, une erreur est survenue. Contactez-nous directement via la page Contact.';
+          addMessage(response, 'edith');
+          conversationHistory.push({ role: 'assistant', content: response });
+          isTyping = false;
+        }, 800 + Math.random() * 400);
+      })
+      .catch(function() {
+        hideTypingIndicator();
+        addMessage('Désolée, je rencontre un souci technique. Appelez-nous ou utilisez le formulaire de contact, nous répondons sous 2h.', 'edith');
+        isTyping = false;
+      });
+    }, 600);
+  };
+
+  function addMessage(text, sender) {
+    var container = document.getElementById('edith-messages');
+    var div = document.createElement('div');
+    div.className = 'edith-msg ' + sender;
+    div.textContent = text;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+    var container = document.getElementById('edith-messages');
+    var existing  = document.getElementById('edith-typing');
+    if (existing) existing.remove();
+    var div = document.createElement('div');
+    div.className = 'edith-msg edith typing-indicator';
+    div.id = 'edith-typing';
+    div.innerHTML = '<div class="typing-content"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-text">Edith écrit…</span></div>';
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function hideTypingIndicator() {
+    var indicator = document.getElementById('edith-typing');
+    if (indicator) indicator.remove();
+  }
+
+  // Fermer avec Échap
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && chatOpen) toggleEdithChat();
+  });
+})();
 </script>
 
 </body>
